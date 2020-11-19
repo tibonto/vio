@@ -355,6 +355,10 @@
                                                          rdfs:subClassOf <https://github.com/tibonto/vio#Visual_Inspection> .
 
 
+###  https://github.com/tibonto/vio#Sample
+<https://github.com/tibonto/vio#Sample> rdf:type owl:Class .
+
+
 ###  https://github.com/tibonto/vio#Visual_Inspection
 <https://github.com/tibonto/vio#Visual_Inspection> rdf:type owl:Class ;
                                                    rdfs:subClassOf <http://www.w3.org/ns/sosa/Observation> .
