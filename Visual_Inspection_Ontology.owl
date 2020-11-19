@@ -330,6 +330,26 @@
 <http://www.w3.org/ns/ssn/Stimulus> rdf:type owl:Class .
 
 
+###  https://github.com/tibonto/vio#Corrosion
+<https://github.com/tibonto/vio#Corrosion> rdf:type owl:Class ;
+                                           rdfs:subClassOf <https://github.com/tibonto/vio#Defect> .
+
+
+###  https://github.com/tibonto/vio#Crack
+<https://github.com/tibonto/vio#Crack> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://github.com/tibonto/vio#Defect> .
+
+
+###  https://github.com/tibonto/vio#Defect
+<https://github.com/tibonto/vio#Defect> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://www.w3.org/ns/sosa/ObservableProperty> .
+
+
+###  https://github.com/tibonto/vio#Fused_Area
+<https://github.com/tibonto/vio#Fused_Area> rdf:type owl:Class ;
+                                            rdfs:subClassOf <https://github.com/tibonto/vio#Defect> .
+
+
 ###  https://github.com/tibonto/vio#Input_Visual_Inspection
 <https://github.com/tibonto/vio#Input_Visual_Inspection> rdf:type owl:Class ;
                                                          rdfs:subClassOf <https://github.com/tibonto/vio#Visual_Inspection> .
