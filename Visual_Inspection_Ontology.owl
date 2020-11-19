@@ -1,0 +1,153 @@
+@prefix : <http://www.semanticweb.org/Visual_Inspection_Ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/Visual_Inspection_Ontology> .
+
+<http://www.semanticweb.org/Visual_Inspection_Ontology> rdf:type owl:Ontology ;
+                                                         owl:versionIRI <http://www.semanticweb.org/Visual_Inspection_Ontology/0.0.1> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+<http://www.w3.org/2004/02/skos/core#example> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/ns/sosa/hasFeatureOfInterest
+<http://www.w3.org/ns/sosa/hasFeatureOfInterest> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/hasResult
+<http://www.w3.org/ns/sosa/hasResult> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/madeBySensor
+<http://www.w3.org/ns/sosa/madeBySensor> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/observedProperty
+<http://www.w3.org/ns/sosa/observedProperty> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/phenomenonTime
+<http://www.w3.org/ns/sosa/phenomenonTime> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/usedProcedure
+<http://www.w3.org/ns/sosa/usedProcedure> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/ssn/wasOriginatedBy
+<http://www.w3.org/ns/ssn/wasOriginatedBy> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.w3.org/ns/sosa/resultTime
+<http://www.w3.org/ns/sosa/resultTime> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3.org/ns/sosa/FeatureOfInterest
+<http://www.w3.org/ns/sosa/FeatureOfInterest> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/ObservableProperty
+<http://www.w3.org/ns/sosa/ObservableProperty> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Observation
+<http://www.w3.org/ns/sosa/Observation> rdf:type owl:Class ;
+                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                          owl:allValuesFrom <http://www.w3.org/ns/sosa/FeatureOfInterest>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/hasResult> ;
+                                                          owl:allValuesFrom <http://www.w3.org/ns/sosa/Result>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/madeBySensor> ;
+                                                          owl:allValuesFrom <http://www.w3.org/ns/sosa/Sensor>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                                          owl:allValuesFrom <http://www.w3.org/ns/sosa/ObservableProperty>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/usedProcedure> ;
+                                                          owl:allValuesFrom <http://www.w3.org/ns/sosa/Procedure>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/ssn/wasOriginatedBy> ;
+                                                          owl:allValuesFrom <http://www.w3.org/ns/ssn/Stimulus>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/hasResult> ;
+                                                          owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/madeBySensor> ;
+                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/phenomenonTime> ;
+                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/ssn/wasOriginatedBy> ;
+                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/resultTime> ;
+                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                        ] ;
+                                        rdfs:comment "Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with."@en ;
+                                        rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                        rdfs:label "Observation"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#definition> "Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with."@en ;
+                                        <http://www.w3.org/2004/02/skos/core#example> "The activity of estimating the intensity of an Earthquake using the Mercalli intensity scale is an Observation as is measuring the moment magnitude, i.e., the energy released by said earthquake."@en .
+
+
+###  http://www.w3.org/ns/sosa/Procedure
+<http://www.w3.org/ns/sosa/Procedure> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Result
+<http://www.w3.org/ns/sosa/Result> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Sensor
+<http://www.w3.org/ns/sosa/Sensor> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/ssn/Stimulus
+<http://www.w3.org/ns/ssn/Stimulus> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
