@@ -1,4 +1,3 @@
-# vio
-Visual Inspection Ontology
+# vio: Visual Inspection Ontology
 
 Author: Tatyana Sheveleva
