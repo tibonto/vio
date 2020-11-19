@@ -3,5 +3,7 @@
 !*.ttl
 !*.rdf
 !*.xml
+!*.owl
 !*.rq
+!*.md
 !.gitignore
