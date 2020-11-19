@@ -214,6 +214,11 @@
 #    Classes
 #################################################################
 
+###  http://www.semanticweb.org/Visual_Inspection_Ontology#Output_Visual_Inspection
+:Output_Visual_Inspection rdf:type owl:Class ;
+                          rdfs:subClassOf <https://github.com/tibonto/vio#Visual_Inspection> .
+
+
 ###  http://www.w3.org/ns/sosa/FeatureOfInterest
 <http://www.w3.org/ns/sosa/FeatureOfInterest> rdf:type owl:Class ;
                                               rdfs:comment "The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling."@en ;
@@ -323,6 +328,16 @@
 
 ###  http://www.w3.org/ns/ssn/Stimulus
 <http://www.w3.org/ns/ssn/Stimulus> rdf:type owl:Class .
+
+
+###  https://github.com/tibonto/vio#Input_Visual_Inspection
+<https://github.com/tibonto/vio#Input_Visual_Inspection> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <https://github.com/tibonto/vio#Visual_Inspection> .
+
+
+###  https://github.com/tibonto/vio#Visual_Inspection
+<https://github.com/tibonto/vio#Visual_Inspection> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.w3.org/ns/sosa/Observation> .
 
 
 [ <http://xmlns.com/foaf/0.1/name> "W3C/OGC Spatial Data on the Web Working Group"@en
