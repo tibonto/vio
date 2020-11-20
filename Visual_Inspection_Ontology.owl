@@ -1,282 +1,286 @@
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="https://github.com/tibonto/vio#Visual_Inspection_Ontology"
+     xml:base="https://github.com/tibonto/vio#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="https://github.com/tibonto/vio#Visual_Inspection_Ontology"
-     versionIRI="https://github.com/tibonto/vio#Visual_Inspection_Ontology/0.0.1">
+     ontologyIRI="https://github.com/tibonto/vio#"
+     versionIRI="https://github.com/tibonto/vio#0.0.1">
     <Prefix name="" IRI="https://github.com/tibonto/vio#"/>
-    <Prefix name="dc" IRI="http://purl.org/dc/terms/"/>
+    <Prefix name="p0" IRI="http://schema.org/"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="ssn" IRI="http://www.w3.org/ns/ssn/"/>
     <Prefix name="vio" IRI="https://github.com/tibonto/vio#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
-    <Prefix name="foaf" IRI="http://xmlns.com/foaf/0.1/"/>
+    <Prefix name="prov" IRI="http://www.w3.org/ns/prov-o/"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Prefix name="skos" IRI="http://www.w3.org/2004/02/skos/core#"/>
-    <Prefix name="sosa" IRI="http://www.w3.org/ns/sosa/"/>
-    <Prefix name="vann" IRI="http://purl.org/vocab/vann/"/>
-    <Import>http://www.w3.org/ns/prov-o-20130430</Import>
-    <Import>http://www.w3.org/ns/sosa/</Import>
-    <Import>http://www.w3.org/ns/ssn/</Import>
+    <Prefix name="dcterms" IRI="http://purl.org/dc/terms/"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dcterms:creator"/>
+        <Literal xml:lang="en">Common Research Centre 1153</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dcterms:title"/>
+        <Literal xml:lang="en">Visual Inspection Ontology</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal xml:lang="en">0.0.1</Literal>
+    </Annotation>
     <Declaration>
         <Class IRI="http://www.w3.org/ns/prov#Agent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/ns/prov#Person"/>
     </Declaration>
     <Declaration>
         <Class IRI="http://www.w3.org/ns/prov#Role"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI="sosa:FeatureOfInterest"/>
+        <Class IRI="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI="sosa:ObservableProperty"/>
+        <Class IRI="http://www.w3.org/ns/sosa/ObservableProperty"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI="sosa:Observation"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Observation"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI="sosa:Result"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Result"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI="sosa:Sensor"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Sensor"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI="vio:Corrosion"/>
+        <Class IRI="Corrosion"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI="vio:Crack"/>
+        <Class IRI="Crack"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI="vio:Defect"/>
+        <Class IRI="Defect"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI="vio:Fused_Area"/>
+        <Class IRI="Fused_Area"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI="vio:Input_Visual_Inspection"/>
+        <Class IRI="Input_Visual_Inspection"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI="vio:Visual_Inspection"/>
+        <Class IRI="Output_Visual_Inspection"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Output_Visual_Inspection"/>
+        <Class IRI="Visual_Inspection"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="http://www.w3.org/ns/prov#hadRole"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:hasFeatureOfInterest"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/sosa/hasFeatureOfInterest"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:hasResult"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/sosa/hasResult"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:isFeatureOfInterestOf"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/sosa/isFeatureOfInterestOf"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:isObservedBy"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/sosa/isObservedBy"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:madeBySensor"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/sosa/madeBySensor"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:madeObservation"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/sosa/madeObservation"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:observedProperty"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/sosa/observedProperty"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:observes"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/sosa/observes"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:phenomenonTime"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/sosa/phenomenonTime"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:usedProcedure"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/sosa/usedProcedure"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty abbreviatedIRI="ssn:wasOriginatedBy"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/ssn/wasOriginatedBy"/>
     </Declaration>
     <Declaration>
-        <DataProperty abbreviatedIRI="sosa:resultTime"/>
+        <DataProperty IRI="http://www.w3.org/ns/sosa/hasSimpleResult"/>
     </Declaration>
     <Declaration>
-        <DataProperty abbreviatedIRI="vio:isLocatedInArea"/>
+        <DataProperty IRI="http://www.w3.org/ns/sosa/resultTime"/>
     </Declaration>
     <Declaration>
-        <DataProperty abbreviatedIRI="vio:requiresCorrectiveAction"/>
+        <DataProperty IRI="isLocatedInArea"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Corrosion_1"/>
+        <DataProperty IRI="requiresCorrectiveAction"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Corrosion_2"/>
+        <NamedIndividual IRI="Corrosion_1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Corrosion_3"/>
+        <NamedIndividual IRI="Corrosion_2"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Corrosion_4"/>
+        <NamedIndividual IRI="Corrosion_3"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Corrosion_5"/>
+        <NamedIndividual IRI="Corrosion_4"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Corrosion_6"/>
+        <NamedIndividual IRI="Corrosion_5"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Corrosion_7"/>
+        <NamedIndividual IRI="Corrosion_6"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Corrosion_8"/>
+        <NamedIndividual IRI="Corrosion_7"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Crack_1"/>
+        <NamedIndividual IRI="Corrosion_8"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Crack_2"/>
+        <NamedIndividual IRI="Crack_1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Crack_3"/>
+        <NamedIndividual IRI="Crack_2"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Crack_4"/>
+        <NamedIndividual IRI="Crack_3"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Crack_5"/>
+        <NamedIndividual IRI="Crack_4"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Crack_6"/>
+        <NamedIndividual IRI="Crack_5"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Crack_7"/>
+        <NamedIndividual IRI="Crack_6"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Crack_8"/>
+        <NamedIndividual IRI="Crack_7"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Fused_Area_1"/>
+        <NamedIndividual IRI="Crack_8"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Fused_Area_2"/>
+        <NamedIndividual IRI="Fused_Area_1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Fused_Area_3"/>
+        <NamedIndividual IRI="Fused_Area_2"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Fused_Area_4"/>
+        <NamedIndividual IRI="Fused_Area_3"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Fused_Area_5"/>
+        <NamedIndividual IRI="Fused_Area_4"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Fused_Area_6"/>
+        <NamedIndividual IRI="Fused_Area_5"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Fused_Area_7"/>
+        <NamedIndividual IRI="Fused_Area_6"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Fused_Area_8"/>
+        <NamedIndividual IRI="Fused_Area_7"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_12"/>
+        <NamedIndividual IRI="Fused_Area_8"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_13"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_12"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_14"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_13"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_18"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_14"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_20"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_18"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_21"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_20"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_3"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_21"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_4"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_3"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_43"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_4"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_6"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_43"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Mueller"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_6"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_1"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_10"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_10"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_12"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_12"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_2"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_2"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_23"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_23"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_28"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_28"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_6"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_6"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_7"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_7"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_9"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_9"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Schneider"/>
+        <AnnotationProperty abbreviatedIRI="dcterms:created"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="vio:Schulz"/>
+        <AnnotationProperty abbreviatedIRI="dcterms:creator"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty abbreviatedIRI="dc:created"/>
+        <AnnotationProperty abbreviatedIRI="dcterms:description"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+        <AnnotationProperty abbreviatedIRI="dcterms:license"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <AnnotationProperty abbreviatedIRI="dcterms:rights"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty abbreviatedIRI="dc:license"/>
+        <AnnotationProperty abbreviatedIRI="dcterms:title"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty abbreviatedIRI="dc:rights"/>
+        <AnnotationProperty IRI="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty abbreviatedIRI="dc:title"/>
+        <AnnotationProperty IRI="http://purl.org/vocab/vann/preferredNamespaceUri"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty abbreviatedIRI="vann:preferredNamespacePrefix"/>
+        <AnnotationProperty abbreviatedIRI="p0:domainIncludes"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty abbreviatedIRI="vann:preferredNamespaceUri"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty IRI="http://schema.org/domainIncludes"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty IRI="http://schema.org/rangeIncludes"/>
+        <AnnotationProperty abbreviatedIRI="p0:rangeIncludes"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
@@ -288,22 +292,13 @@
         <AnnotationProperty abbreviatedIRI="skos:note"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty abbreviatedIRI="foaf:name"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty IRI="http://www.w3.org/ns/prov#inverse"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty IRI="http://www.w3.org/ns/prov#n"/>
+        <AnnotationProperty IRI="http://www.w3.org/ns/prov#category"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty IRI="http://www.w3.org/ns/prov#component"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty IRI="http://www.w3.org/ns/prov#sharesDefinitionWith"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="sosa:hasSimpleResult"/>
+        <AnnotationProperty IRI="http://www.w3.org/ns/prov#definition"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty IRI="http://www.w3.org/ns/prov#dm"/>
@@ -312,330 +307,329 @@
         <AnnotationProperty IRI="http://www.w3.org/ns/prov#editorsDefinition"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty IRI="http://www.w3.org/ns/prov#definition"/>
+        <AnnotationProperty IRI="http://www.w3.org/ns/prov#inverse"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty IRI="http://www.w3.org/ns/prov#category"/>
+        <AnnotationProperty IRI="http://www.w3.org/ns/prov#n"/>
     </Declaration>
     <Declaration>
+        <AnnotationProperty IRI="http://www.w3.org/ns/prov#sharesDefinitionWith"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://xmlns.com/foaf/0.1/name"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/ns/prov#Agent"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Sensor"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="http://www.w3.org/ns/prov#Person"/>
-    </Declaration>
+        <Class IRI="http://www.w3.org/ns/prov#Agent"/>
+    </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="sosa:Observation"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Observation"/>
         <ObjectAllValuesFrom>
-            <ObjectProperty abbreviatedIRI="sosa:hasFeatureOfInterest"/>
-            <Class abbreviatedIRI="sosa:FeatureOfInterest"/>
+            <ObjectProperty IRI="http://www.w3.org/ns/sosa/hasFeatureOfInterest"/>
+            <Class IRI="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
         </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="sosa:Observation"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Observation"/>
         <ObjectAllValuesFrom>
-            <ObjectProperty abbreviatedIRI="sosa:hasResult"/>
-            <Class abbreviatedIRI="sosa:Result"/>
+            <ObjectProperty IRI="http://www.w3.org/ns/sosa/hasResult"/>
+            <Class IRI="http://www.w3.org/ns/sosa/Result"/>
         </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="sosa:Observation"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Observation"/>
         <ObjectAllValuesFrom>
-            <ObjectProperty abbreviatedIRI="sosa:madeBySensor"/>
-            <Class abbreviatedIRI="sosa:Sensor"/>
+            <ObjectProperty IRI="http://www.w3.org/ns/sosa/madeBySensor"/>
+            <Class IRI="http://www.w3.org/ns/sosa/Sensor"/>
         </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="sosa:Observation"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Observation"/>
         <ObjectAllValuesFrom>
-            <ObjectProperty abbreviatedIRI="sosa:observedProperty"/>
-            <Class abbreviatedIRI="sosa:ObservableProperty"/>
+            <ObjectProperty IRI="http://www.w3.org/ns/sosa/observedProperty"/>
+            <Class IRI="http://www.w3.org/ns/sosa/ObservableProperty"/>
         </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="sosa:Observation"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Observation"/>
         <ObjectMinCardinality cardinality="1">
-            <ObjectProperty abbreviatedIRI="sosa:hasResult"/>
+            <ObjectProperty IRI="http://www.w3.org/ns/sosa/hasResult"/>
         </ObjectMinCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="sosa:Observation"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Observation"/>
         <ObjectExactCardinality cardinality="1">
-            <ObjectProperty abbreviatedIRI="sosa:hasFeatureOfInterest"/>
+            <ObjectProperty IRI="http://www.w3.org/ns/sosa/hasFeatureOfInterest"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="sosa:Observation"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Observation"/>
         <ObjectExactCardinality cardinality="1">
-            <ObjectProperty abbreviatedIRI="sosa:madeBySensor"/>
+            <ObjectProperty IRI="http://www.w3.org/ns/sosa/madeBySensor"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="sosa:Observation"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Observation"/>
         <ObjectExactCardinality cardinality="1">
-            <ObjectProperty abbreviatedIRI="sosa:observedProperty"/>
+            <ObjectProperty IRI="http://www.w3.org/ns/sosa/observedProperty"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="sosa:Observation"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Observation"/>
         <ObjectExactCardinality cardinality="1">
-            <ObjectProperty abbreviatedIRI="sosa:phenomenonTime"/>
+            <ObjectProperty IRI="http://www.w3.org/ns/sosa/phenomenonTime"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="sosa:Observation"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Observation"/>
         <ObjectExactCardinality cardinality="1">
-            <ObjectProperty abbreviatedIRI="ssn:wasOriginatedBy"/>
+            <ObjectProperty IRI="http://www.w3.org/ns/ssn/wasOriginatedBy"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="sosa:Observation"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Observation"/>
         <DataExactCardinality cardinality="1">
-            <DataProperty abbreviatedIRI="sosa:resultTime"/>
+            <DataProperty IRI="http://www.w3.org/ns/sosa/resultTime"/>
         </DataExactCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="vio:Corrosion"/>
-        <Class abbreviatedIRI="vio:Defect"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Result"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Sensor"/>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="vio:Crack"/>
-        <Class abbreviatedIRI="vio:Defect"/>
+        <Class IRI="Corrosion"/>
+        <Class IRI="Defect"/>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="vio:Defect"/>
-        <Class abbreviatedIRI="sosa:ObservableProperty"/>
+        <Class IRI="Crack"/>
+        <Class IRI="Defect"/>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="vio:Fused_Area"/>
-        <Class abbreviatedIRI="vio:Defect"/>
+        <Class IRI="Defect"/>
+        <Class IRI="http://www.w3.org/ns/sosa/ObservableProperty"/>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="vio:Input_Visual_Inspection"/>
-        <Class abbreviatedIRI="vio:Visual_Inspection"/>
+        <Class IRI="Fused_Area"/>
+        <Class IRI="Defect"/>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="vio:Visual_Inspection"/>
-        <Class abbreviatedIRI="sosa:Observation"/>
+        <Class IRI="Input_Visual_Inspection"/>
+        <Class IRI="Visual_Inspection"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Output_Visual_Inspection"/>
-        <Class abbreviatedIRI="vio:Visual_Inspection"/>
+        <Class IRI="Output_Visual_Inspection"/>
+        <Class IRI="Visual_Inspection"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Visual_Inspection"/>
+        <Class IRI="http://www.w3.org/ns/sosa/Observation"/>
     </SubClassOf>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Corrosion"/>
-        <NamedIndividual abbreviatedIRI="vio:Corrosion_1"/>
+        <Class IRI="Corrosion"/>
+        <NamedIndividual IRI="Corrosion_1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Corrosion"/>
-        <NamedIndividual abbreviatedIRI="vio:Corrosion_2"/>
+        <Class IRI="Corrosion"/>
+        <NamedIndividual IRI="Corrosion_2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Corrosion"/>
-        <NamedIndividual abbreviatedIRI="vio:Corrosion_3"/>
+        <Class IRI="Corrosion"/>
+        <NamedIndividual IRI="Corrosion_3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Corrosion"/>
-        <NamedIndividual abbreviatedIRI="vio:Corrosion_4"/>
+        <Class IRI="Corrosion"/>
+        <NamedIndividual IRI="Corrosion_4"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Corrosion"/>
-        <NamedIndividual abbreviatedIRI="vio:Corrosion_5"/>
+        <Class IRI="Corrosion"/>
+        <NamedIndividual IRI="Corrosion_5"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Corrosion"/>
-        <NamedIndividual abbreviatedIRI="vio:Corrosion_6"/>
+        <Class IRI="Corrosion"/>
+        <NamedIndividual IRI="Corrosion_6"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Corrosion"/>
-        <NamedIndividual abbreviatedIRI="vio:Corrosion_7"/>
+        <Class IRI="Corrosion"/>
+        <NamedIndividual IRI="Corrosion_7"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Corrosion"/>
-        <NamedIndividual abbreviatedIRI="vio:Corrosion_8"/>
+        <Class IRI="Corrosion"/>
+        <NamedIndividual IRI="Corrosion_8"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Crack"/>
-        <NamedIndividual abbreviatedIRI="vio:Crack_1"/>
+        <Class IRI="Crack"/>
+        <NamedIndividual IRI="Crack_1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Crack"/>
-        <NamedIndividual abbreviatedIRI="vio:Crack_2"/>
+        <Class IRI="Crack"/>
+        <NamedIndividual IRI="Crack_2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Crack"/>
-        <NamedIndividual abbreviatedIRI="vio:Crack_3"/>
+        <Class IRI="Crack"/>
+        <NamedIndividual IRI="Crack_3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Crack"/>
-        <NamedIndividual abbreviatedIRI="vio:Crack_4"/>
+        <Class IRI="Crack"/>
+        <NamedIndividual IRI="Crack_4"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Crack"/>
-        <NamedIndividual abbreviatedIRI="vio:Crack_5"/>
+        <Class IRI="Crack"/>
+        <NamedIndividual IRI="Crack_5"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Crack"/>
-        <NamedIndividual abbreviatedIRI="vio:Crack_6"/>
+        <Class IRI="Crack"/>
+        <NamedIndividual IRI="Crack_6"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Crack"/>
-        <NamedIndividual abbreviatedIRI="vio:Crack_7"/>
+        <Class IRI="Crack"/>
+        <NamedIndividual IRI="Crack_7"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Crack"/>
-        <NamedIndividual abbreviatedIRI="vio:Crack_8"/>
+        <Class IRI="Crack"/>
+        <NamedIndividual IRI="Crack_8"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Fused_Area"/>
-        <NamedIndividual abbreviatedIRI="vio:Fused_Area_1"/>
+        <Class IRI="Fused_Area"/>
+        <NamedIndividual IRI="Fused_Area_1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Fused_Area"/>
-        <NamedIndividual abbreviatedIRI="vio:Fused_Area_2"/>
+        <Class IRI="Fused_Area"/>
+        <NamedIndividual IRI="Fused_Area_2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Fused_Area"/>
-        <NamedIndividual abbreviatedIRI="vio:Fused_Area_3"/>
+        <Class IRI="Fused_Area"/>
+        <NamedIndividual IRI="Fused_Area_3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Fused_Area"/>
-        <NamedIndividual abbreviatedIRI="vio:Fused_Area_4"/>
+        <Class IRI="Fused_Area"/>
+        <NamedIndividual IRI="Fused_Area_4"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Fused_Area"/>
-        <NamedIndividual abbreviatedIRI="vio:Fused_Area_5"/>
+        <Class IRI="Fused_Area"/>
+        <NamedIndividual IRI="Fused_Area_5"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Fused_Area"/>
-        <NamedIndividual abbreviatedIRI="vio:Fused_Area_6"/>
+        <Class IRI="Fused_Area"/>
+        <NamedIndividual IRI="Fused_Area_6"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Fused_Area"/>
-        <NamedIndividual abbreviatedIRI="vio:Fused_Area_7"/>
+        <Class IRI="Fused_Area"/>
+        <NamedIndividual IRI="Fused_Area_7"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Fused_Area"/>
-        <NamedIndividual abbreviatedIRI="vio:Fused_Area_8"/>
+        <Class IRI="Fused_Area"/>
+        <NamedIndividual IRI="Fused_Area_8"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Input_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_12"/>
+        <Class IRI="Input_Visual_Inspection"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_12"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Input_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_13"/>
+        <Class IRI="Input_Visual_Inspection"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_13"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Input_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_14"/>
+        <Class IRI="Input_Visual_Inspection"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_14"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Input_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_18"/>
+        <Class IRI="Input_Visual_Inspection"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_18"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Input_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_20"/>
+        <Class IRI="Input_Visual_Inspection"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_20"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Input_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_21"/>
+        <Class IRI="Input_Visual_Inspection"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_21"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Input_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_3"/>
+        <Class IRI="Input_Visual_Inspection"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Input_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_4"/>
+        <Class IRI="Input_Visual_Inspection"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_4"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Input_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_43"/>
+        <Class IRI="Input_Visual_Inspection"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_43"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="vio:Input_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Input_Visual_Inspection_6"/>
+        <Class IRI="Input_Visual_Inspection"/>
+        <NamedIndividual IRI="Input_Visual_Inspection_6"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://www.w3.org/ns/prov#Person"/>
-        <NamedIndividual abbreviatedIRI="vio:Mueller"/>
+        <Class IRI="Output_Visual_Inspection"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Output_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_1"/>
+        <Class IRI="Output_Visual_Inspection"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_10"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Output_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_10"/>
+        <Class IRI="Output_Visual_Inspection"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_12"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Output_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_12"/>
+        <Class IRI="Output_Visual_Inspection"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Output_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_2"/>
+        <Class IRI="Output_Visual_Inspection"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_23"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Output_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_23"/>
+        <Class IRI="Output_Visual_Inspection"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_28"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Output_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_28"/>
+        <Class IRI="Output_Visual_Inspection"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_6"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Output_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_6"/>
+        <Class IRI="Output_Visual_Inspection"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_7"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Output_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_7"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Output_Visual_Inspection"/>
-        <NamedIndividual abbreviatedIRI="vio:Output_Visual_Inspection_9"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="http://www.w3.org/ns/prov#Person"/>
-        <NamedIndividual abbreviatedIRI="vio:Schneider"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="http://www.w3.org/ns/prov#Person"/>
-        <NamedIndividual abbreviatedIRI="vio:Schulz"/>
+        <Class IRI="Output_Visual_Inspection"/>
+        <NamedIndividual IRI="Output_Visual_Inspection_9"/>
     </ClassAssertion>
     <InverseObjectProperties>
-        <ObjectProperty abbreviatedIRI="sosa:hasFeatureOfInterest"/>
-        <ObjectProperty abbreviatedIRI="sosa:isFeatureOfInterestOf"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/sosa/hasFeatureOfInterest"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/sosa/isFeatureOfInterestOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty abbreviatedIRI="sosa:isObservedBy"/>
-        <ObjectProperty abbreviatedIRI="sosa:observes"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/sosa/isObservedBy"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/sosa/observes"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty abbreviatedIRI="sosa:madeBySensor"/>
-        <ObjectProperty abbreviatedIRI="sosa:madeObservation"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/sosa/madeBySensor"/>
+        <ObjectProperty IRI="http://www.w3.org/ns/sosa/madeObservation"/>
     </InverseObjectProperties>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://www.w3.org/ns/prov#hadRole"/>
         <Class IRI="http://www.w3.org/ns/prov#Role"/>
     </ObjectPropertyRange>
     <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="vio:isLocatedInArea"/>
-        <Class abbreviatedIRI="vio:Defect"/>
+        <DataProperty IRI="isLocatedInArea"/>
+        <Class IRI="Defect"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="vio:requiresCorrectiveAction"/>
-        <Class abbreviatedIRI="vio:Defect"/>
+        <DataProperty IRI="requiresCorrectiveAction"/>
+        <Class IRI="Defect"/>
     </DataPropertyDomain>
     <DataPropertyRange>
-        <DataProperty abbreviatedIRI="sosa:hasSimpleResult"/>
-        <Datatype abbreviatedIRI="xsd:boolean"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty abbreviatedIRI="vio:isLocatedInArea"/>
+        <DataProperty IRI="isLocatedInArea"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty abbreviatedIRI="vio:requiresCorrectiveAction"/>
+        <DataProperty IRI="requiresCorrectiveAction"/>
         <Datatype abbreviatedIRI="xsd:boolean"/>
     </DataPropertyRange>
     <AnnotationAssertion>
@@ -672,6 +666,41 @@
         <AnnotationProperty IRI="http://www.w3.org/ns/prov#n"/>
         <IRI>http://www.w3.org/ns/prov#Agent</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Agent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.w3.org/ns/prov#Person</IRI>
+        <IRI>http://www.w3.org/ns/prov-o#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.w3.org/ns/prov#Person</IRI>
+        <Literal>Person</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/ns/prov#category"/>
+        <IRI>http://www.w3.org/ns/prov#Person</IRI>
+        <Literal>expanded</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/ns/prov#component"/>
+        <IRI>http://www.w3.org/ns/prov#Person</IRI>
+        <Literal>agents-responsibility</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/ns/prov#definition"/>
+        <IRI>http://www.w3.org/ns/prov#Person</IRI>
+        <Literal xml:lang="en">Person agents are people.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/ns/prov#dm"/>
+        <IRI>http://www.w3.org/ns/prov#Person</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/ns/prov#n"/>
+        <IRI>http://www.w3.org/ns/prov#Person</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-types</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
@@ -760,722 +789,722 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:FeatureOfInterest</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/FeatureOfInterest</IRI>
         <Literal xml:lang="en">The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:FeatureOfInterest</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/FeatureOfInterest</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:FeatureOfInterest</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/FeatureOfInterest</IRI>
         <Literal xml:lang="en">Feature Of Interest</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:FeatureOfInterest</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/FeatureOfInterest</IRI>
         <Literal xml:lang="en">The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:example"/>
-        <AbbreviatedIRI>sosa:FeatureOfInterest</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/FeatureOfInterest</IRI>
         <Literal xml:lang="en">When measuring the height of a tree, the height is the observed ObservableProperty, 20m may be the Result of the Observation, and the tree is the FeatureOfInterest. A window is a FeatureOfInterest for an automatic window control Actuator.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:ObservableProperty</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/ObservableProperty</IRI>
         <Literal xml:lang="en">An observable quality (property, characteristic) of a FeatureOfInterest.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:ObservableProperty</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/ObservableProperty</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:ObservableProperty</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/ObservableProperty</IRI>
         <Literal xml:lang="en">Observable Property</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:ObservableProperty</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/ObservableProperty</IRI>
         <Literal xml:lang="en">An observable quality (property, characteristic) of a FeatureOfInterest.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:example"/>
-        <AbbreviatedIRI>sosa:ObservableProperty</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/ObservableProperty</IRI>
         <Literal xml:lang="en">The height of a tree, the depth of a water body, or the temperature of a surface are examples of observable properties, while the value of a classic car is not (directly) observable but asserted.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/Observation</IRI>
         <Literal xml:lang="en">Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/Observation</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/Observation</IRI>
         <Literal xml:lang="en">Observation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/Observation</IRI>
         <Literal xml:lang="en">Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:example"/>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/Observation</IRI>
         <Literal xml:lang="en">The activity of estimating the intensity of an Earthquake using the Mercalli intensity scale is an Observation as is measuring the moment magnitude, i.e., the energy released by said earthquake.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:Result</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/Result</IRI>
         <Literal xml:lang="en">The Result of an Observation, Actuation, or act of Sampling. To store an observation&apos;s simple result value one can use the hasSimpleResult property.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:Result</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/Result</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:Result</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/Result</IRI>
         <Literal xml:lang="en">Result</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:Result</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/Result</IRI>
         <Literal xml:lang="en">The Result of an Observation, Actuation, or act of Sampling. To store an observation&apos;s simple result value one can use the hasSimpleResult property.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:example"/>
-        <AbbreviatedIRI>sosa:Result</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/Result</IRI>
         <Literal xml:lang="en">The value 20 as the height of a certain tree together with the unit, e.g., Meter.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/Sensor</IRI>
         <Literal xml:lang="en">Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/Sensor</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/Sensor</IRI>
         <Literal xml:lang="en">Sensor</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/Sensor</IRI>
         <Literal xml:lang="en">Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:example"/>
-        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/Sensor</IRI>
         <Literal xml:lang="en">Accelerometers, gyroscopes, barometers, magnetometers, and so forth are Sensors that are typically mounted on a modern smart phone (which acts as Platform). Other examples of sensors include the human eyes.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:actsOnProperty</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/actsOnProperty</IRI>
         <Literal xml:lang="en">Relation between an Actuation and the property of a FeatureOfInterest it is acting upon.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:actsOnProperty</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/actsOnProperty</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:actsOnProperty</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/actsOnProperty</IRI>
         <Literal xml:lang="en">acts on property</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:actsOnProperty</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/actsOnProperty</IRI>
         <Literal xml:lang="en">Relation between an Actuation and the property of a FeatureOfInterest it is acting upon.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:example"/>
-        <AbbreviatedIRI>sosa:actsOnProperty</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/actsOnProperty</IRI>
         <Literal xml:lang="en">In the activity (Actuation) of automatically closing a window if the temperature in a room drops below 20 degrees Celsius, the property on which the Actuator acts upon is the state of the window as it changes from being open to being closed. </Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/domainIncludes"/>
-        <AbbreviatedIRI>sosa:hasFeatureOfInterest</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:domainIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/hasFeatureOfInterest</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Observation</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/rangeIncludes"/>
-        <AbbreviatedIRI>sosa:hasFeatureOfInterest</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:FeatureOfInterest</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:rangeIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/hasFeatureOfInterest</IRI>
+        <IRI>http://www.w3.org/ns/sosa/FeatureOfInterest</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:hasFeatureOfInterest</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasFeatureOfInterest</IRI>
         <Literal xml:lang="en">A relation between an Observation and the entity whose quality was observed, or between an Actuation and the entity whose property was modified, or between an act of Sampling and the entity that was sampled.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:hasFeatureOfInterest</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasFeatureOfInterest</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:hasFeatureOfInterest</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasFeatureOfInterest</IRI>
         <Literal xml:lang="en">has feature of interest</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:hasFeatureOfInterest</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasFeatureOfInterest</IRI>
         <Literal xml:lang="en">A relation between an Observation and the entity whose quality was observed, or between an Actuation and the entity whose property was modified, or between an act of Sampling and the entity that was sampled.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:example"/>
-        <AbbreviatedIRI>sosa:hasFeatureOfInterest</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasFeatureOfInterest</IRI>
         <Literal xml:lang="en">For example, in an Observation of the weight of a person, the FeatureOfInterest is the person and the property is its weight.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/domainIncludes"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:domainIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/hasResult</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Observation</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/rangeIncludes"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Result</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:rangeIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/hasResult</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Result</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasResult</IRI>
         <Literal xml:lang="en">Relation linking an Observation or Actuation or act of Sampling and a Result or Sample.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasResult</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasResult</IRI>
         <Literal xml:lang="en">has result</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasResult</IRI>
         <Literal xml:lang="en">Relation linking an Observation or Actuation or act of Sampling and a Result or Sample.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/domainIncludes"/>
-        <AbbreviatedIRI>sosa:hasSample</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:FeatureOfInterest</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:domainIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/hasSample</IRI>
+        <IRI>http://www.w3.org/ns/sosa/FeatureOfInterest</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:hasSample</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasSample</IRI>
         <Literal xml:lang="en">Relation between a FeatureOfInterest and the Sample used to represent it.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:hasSample</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasSample</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:hasSample</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasSample</IRI>
         <Literal xml:lang="en">has sample</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:hasSample</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasSample</IRI>
         <Literal xml:lang="en">Relation between a FeatureOfInterest and the Sample used to represent it.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/domainIncludes"/>
-        <AbbreviatedIRI>sosa:hasSimpleResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:domainIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/hasSimpleResult</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Observation</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:hasSimpleResult</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasSimpleResult</IRI>
         <Literal xml:lang="en">The simple value of an Observation or Actuation or act of Sampling.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:hasSimpleResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasSimpleResult</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:hasSimpleResult</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasSimpleResult</IRI>
         <Literal xml:lang="en">has simple result</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:hasSimpleResult</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasSimpleResult</IRI>
         <Literal xml:lang="en">The simple value of an Observation or Actuation or act of Sampling.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:example"/>
-        <AbbreviatedIRI>sosa:hasSimpleResult</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hasSimpleResult</IRI>
         <Literal xml:lang="en">For instance, the values 23 or true.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/rangeIncludes"/>
-        <AbbreviatedIRI>sosa:hosts</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:rangeIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/hosts</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Sensor</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:hosts</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hosts</IRI>
         <Literal xml:lang="en">Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:hosts</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hosts</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:hosts</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hosts</IRI>
         <Literal xml:lang="en">hosts</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:hosts</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/hosts</IRI>
         <Literal xml:lang="en">Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:isActedOnBy</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isActedOnBy</IRI>
         <Literal xml:lang="en">Relation between an ActuatableProperty of a FeatureOfInterest and an Actuation changing its state.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:isActedOnBy</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isActedOnBy</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:isActedOnBy</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isActedOnBy</IRI>
         <Literal xml:lang="en">is acted on by</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:isActedOnBy</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isActedOnBy</IRI>
         <Literal xml:lang="en">Relation between an ActuatableProperty of a FeatureOfInterest and an Actuation changing its state.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:example"/>
-        <AbbreviatedIRI>sosa:isActedOnBy</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isActedOnBy</IRI>
         <Literal xml:lang="en">In the activity (Actuation) of automatically closing a window if the temperature in a room drops below 20 degrees Celsius, the property on which the Actuator acts upon is the state of the window as it changes from being open to being closed. </Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/domainIncludes"/>
-        <AbbreviatedIRI>sosa:isFeatureOfInterestOf</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:FeatureOfInterest</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:domainIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/isFeatureOfInterestOf</IRI>
+        <IRI>http://www.w3.org/ns/sosa/FeatureOfInterest</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/rangeIncludes"/>
-        <AbbreviatedIRI>sosa:isFeatureOfInterestOf</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:rangeIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/isFeatureOfInterestOf</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Observation</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:isFeatureOfInterestOf</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isFeatureOfInterestOf</IRI>
         <Literal xml:lang="en">A relation between a FeatureOfInterest and an Observation about it, an Actuation acting on it, or an act of Sampling that sampled it.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:isFeatureOfInterestOf</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isFeatureOfInterestOf</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:isFeatureOfInterestOf</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isFeatureOfInterestOf</IRI>
         <Literal xml:lang="en">is feature of interest of</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:isFeatureOfInterestOf</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isFeatureOfInterestOf</IRI>
         <Literal xml:lang="en">A relation between a FeatureOfInterest and an Observation about it, an Actuation acting on it, or an act of Sampling that sampled it.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/domainIncludes"/>
-        <AbbreviatedIRI>sosa:isHostedBy</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:domainIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/isHostedBy</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Sensor</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:isHostedBy</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isHostedBy</IRI>
         <Literal xml:lang="en">Relation between a Sensor, Actuator, Sampler, or Platform, and the Platform that it is mounted on or hosted by.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:isHostedBy</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isHostedBy</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:isHostedBy</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isHostedBy</IRI>
         <Literal xml:lang="en">is hosted by</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:isHostedBy</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isHostedBy</IRI>
         <Literal xml:lang="en">Relation between a Sensor, Actuator, Sampler, or Platform, and the Platform that it is mounted on or hosted by.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/domainIncludes"/>
-        <AbbreviatedIRI>sosa:isObservedBy</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:ObservableProperty</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:domainIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/isObservedBy</IRI>
+        <IRI>http://www.w3.org/ns/sosa/ObservableProperty</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/rangeIncludes"/>
-        <AbbreviatedIRI>sosa:isObservedBy</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:rangeIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/isObservedBy</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Sensor</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:isObservedBy</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isObservedBy</IRI>
         <Literal xml:lang="en">Relation between an ObservableProperty and the Sensor able to observe it.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:isObservedBy</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isObservedBy</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:isObservedBy</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isObservedBy</IRI>
         <Literal xml:lang="en">is observed by</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:isObservedBy</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isObservedBy</IRI>
         <Literal xml:lang="en">Relation between an ObservableProperty and the Sensor able to observe it.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/domainIncludes"/>
-        <AbbreviatedIRI>sosa:isResultOf</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Result</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:domainIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/isResultOf</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Result</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/rangeIncludes"/>
-        <AbbreviatedIRI>sosa:isResultOf</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:rangeIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/isResultOf</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Observation</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:isResultOf</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isResultOf</IRI>
         <Literal xml:lang="en">Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:isResultOf</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isResultOf</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:isResultOf</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isResultOf</IRI>
         <Literal xml:lang="en">is result of</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:isResultOf</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isResultOf</IRI>
         <Literal xml:lang="en">Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/rangeIncludes"/>
-        <AbbreviatedIRI>sosa:isSampleOf</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:FeatureOfInterest</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:rangeIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/isSampleOf</IRI>
+        <IRI>http://www.w3.org/ns/sosa/FeatureOfInterest</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:isSampleOf</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isSampleOf</IRI>
         <Literal xml:lang="en">Relation from a Sample to the FeatureOfInterest that it is intended to be representative of.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:isSampleOf</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isSampleOf</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:isSampleOf</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isSampleOf</IRI>
         <Literal xml:lang="en">is sample of</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:isSampleOf</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/isSampleOf</IRI>
         <Literal xml:lang="en">Relation from a Sample to the FeatureOfInterest that it is intended to be representative of.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:madeActuation</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeActuation</IRI>
         <Literal xml:lang="en">Relation between an Actuator and the Actuation it has made.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:madeActuation</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeActuation</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:madeActuation</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeActuation</IRI>
         <Literal xml:lang="en">made actuation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:madeActuation</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeActuation</IRI>
         <Literal xml:lang="en">Relation between an Actuator and the Actuation it has made.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:madeBySampler</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeBySampler</IRI>
         <Literal xml:lang="en">Relation linking an act of Sampling to the Sampler (sampling device or entity) that made it.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:madeBySampler</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeBySampler</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:madeBySampler</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeBySampler</IRI>
         <Literal xml:lang="en">made by sampler</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:madeBySampler</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeBySampler</IRI>
         <Literal xml:lang="en">Relation linking an act of Sampling to the Sampler (sampling device or entity) that made it.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/domainIncludes"/>
-        <AbbreviatedIRI>sosa:madeBySensor</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:domainIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/madeBySensor</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Observation</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/rangeIncludes"/>
-        <AbbreviatedIRI>sosa:madeBySensor</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:rangeIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/madeBySensor</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Sensor</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:madeBySensor</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeBySensor</IRI>
         <Literal xml:lang="en">Relation between an Observation and the Sensor which made the Observation.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:madeBySensor</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeBySensor</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:madeBySensor</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeBySensor</IRI>
         <Literal xml:lang="en">made by sensor</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:madeBySensor</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeBySensor</IRI>
         <Literal xml:lang="en">Relation between an Observation and the Sensor which made the Observation.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/domainIncludes"/>
-        <AbbreviatedIRI>sosa:madeObservation</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:domainIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/madeObservation</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Sensor</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/rangeIncludes"/>
-        <AbbreviatedIRI>sosa:madeObservation</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:rangeIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/madeObservation</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Observation</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:madeObservation</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeObservation</IRI>
         <Literal xml:lang="en">Relation between a Sensor and an Observation made by the Sensor.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:madeObservation</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeObservation</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:madeObservation</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeObservation</IRI>
         <Literal xml:lang="en">made observation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:madeObservation</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeObservation</IRI>
         <Literal xml:lang="en">Relation between a Sensor and an Observation made by the Sensor.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:madeSampling</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeSampling</IRI>
         <Literal xml:lang="en">Relation between a Sampler (sampling device or entity) and the Sampling act it performed.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:madeSampling</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeSampling</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:madeSampling</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeSampling</IRI>
         <Literal xml:lang="en">made sampling</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:madeSampling</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/madeSampling</IRI>
         <Literal xml:lang="en">Relation between a Sampler (sampling device or entity) and the Sampling act it performed.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/domainIncludes"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:domainIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/observedProperty</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Observation</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/rangeIncludes"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:ObservableProperty</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:rangeIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/observedProperty</IRI>
+        <IRI>http://www.w3.org/ns/sosa/ObservableProperty</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/observedProperty</IRI>
         <Literal xml:lang="en">Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/observedProperty</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/observedProperty</IRI>
         <Literal xml:lang="en">observed property</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/observedProperty</IRI>
         <Literal xml:lang="en">Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/domainIncludes"/>
-        <AbbreviatedIRI>sosa:observes</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:domainIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/observes</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Sensor</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/rangeIncludes"/>
-        <AbbreviatedIRI>sosa:observes</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:ObservableProperty</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:rangeIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/observes</IRI>
+        <IRI>http://www.w3.org/ns/sosa/ObservableProperty</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:observes</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/observes</IRI>
         <Literal xml:lang="en">Relation between a Sensor and an ObservableProperty that it is capable of sensing.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:observes</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/observes</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:observes</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/observes</IRI>
         <Literal xml:lang="en">observes</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:observes</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/observes</IRI>
         <Literal xml:lang="en">Relation between a Sensor and an ObservableProperty that it is capable of sensing.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/domainIncludes"/>
-        <AbbreviatedIRI>sosa:phenomenonTime</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:domainIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/phenomenonTime</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Observation</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:phenomenonTime</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/phenomenonTime</IRI>
         <Literal xml:lang="en">The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:phenomenonTime</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/phenomenonTime</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:phenomenonTime</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/phenomenonTime</IRI>
         <Literal xml:lang="en">phenomenon time</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:phenomenonTime</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/phenomenonTime</IRI>
         <Literal xml:lang="en">The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/domainIncludes"/>
-        <AbbreviatedIRI>sosa:resultTime</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:domainIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/resultTime</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Observation</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:resultTime</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/resultTime</IRI>
         <Literal xml:lang="en">The result time is the instant of time when the Observation, Actuation or Sampling activity was completed.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:resultTime</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/resultTime</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:resultTime</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/resultTime</IRI>
         <Literal xml:lang="en">result time</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:resultTime</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/resultTime</IRI>
         <Literal xml:lang="en">The result time is the instant of time when the Observation, Actuation or Sampling activity was completed.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://schema.org/domainIncludes"/>
-        <AbbreviatedIRI>sosa:usedProcedure</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+        <AnnotationProperty abbreviatedIRI="p0:domainIncludes"/>
+        <IRI>http://www.w3.org/ns/sosa/usedProcedure</IRI>
+        <IRI>http://www.w3.org/ns/sosa/Observation</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:usedProcedure</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/usedProcedure</IRI>
         <Literal xml:lang="en">A relation to link to a re-usable Procedure used in making an Observation, an Actuation, or a Sample, typically through a Sensor, Actuator or Sampler.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:usedProcedure</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/usedProcedure</IRI>
+        <IRI>http://www.w3.org/ns/sosa/</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:usedProcedure</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/usedProcedure</IRI>
         <Literal xml:lang="en">used procedure</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="skos:definition"/>
-        <AbbreviatedIRI>sosa:usedProcedure</AbbreviatedIRI>
+        <IRI>http://www.w3.org/ns/sosa/usedProcedure</IRI>
         <Literal xml:lang="en">A relation to link to a re-usable Procedure used in making an Observation, an Actuation, or a Sample, typically through a Sensor, Actuator or Sampler.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="foaf:name"/>
-        <AnonymousIndividual nodeID="_:genid2147483820"/>
+        <AnnotationProperty IRI="http://xmlns.com/foaf/0.1/name"/>
+        <AnonymousIndividual nodeID="_:genid2147483650"/>
         <Literal xml:lang="en">W3C/OGC Spatial Data on the Web Working Group</Literal>
     </AnnotationAssertion>
 </Ontology>
