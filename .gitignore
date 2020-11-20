@@ -7,3 +7,4 @@
 !*.rq
 !*.md
 !.gitignore
+catalog-v*.xml
