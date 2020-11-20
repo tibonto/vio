@@ -5,6 +5,7 @@ Author: Tatyana Sheveleva
 
 ## All VIO terms and imported terms 
 
+```
 ---------------------------------
 | term                          |
 =================================
@@ -58,3 +59,4 @@ Author: Tatyana Sheveleva
 | vio:Output_Visual_Inspection  |
 | vio:Visual_Inspection         |
 ---------------------------------
+```
