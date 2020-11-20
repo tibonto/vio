@@ -7,4 +7,6 @@
 !*.rq
 !*.md
 !.gitignore
+!scripts/
+!scripts/robot_owl2ttl.sh
 catalog-v001.xml
