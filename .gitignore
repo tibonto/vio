@@ -9,4 +9,6 @@
 !.gitignore
 !scripts/
 !scripts/robot_owl2ttl.sh
+!queries/
+!queries/query_terms.rq
 catalog-v001.xml

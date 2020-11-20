@@ -1,0 +1,47 @@
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX ns: <http://www.w3.org/2003/06/sw-vocab-status/ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/> 
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX schema: <http://schema.org/>
+PREFIX vio: <https://github.com/tibonto/vio#>
+
+
+SELECT DISTINCT ?term        
+# ?termType ?label ?range ?subpropertyof  ?range 
+#?subclassof 
+
+WHERE {
+
+    {?term rdf:type owl:ObjectProperty.}
+    UNION 
+    {?term rdf:type owl:Class. }
+    UNION 
+    {?term rdf:type owl:AnnotationProperty. }
+
+    ?term rdf:type ?termType.
+    OPTIONAL{ ?term rdfs:range ?range. }
+    OPTIONAL {?term rdfs:subPropertyOf ?subpropertyof.}
+    OPTIONAL {?term rdfs:subClassOf ?subclassof.}
+    OPTIONAL {?term rdfs:label ?label.}
+    OPTIONAL {?term rdfs:range ?range.}
+
+
+    FILTER (!isBlank(?term))
+    FILTER (!CONTAINS(STR(?term), 'http://www.w3.org/2001/XMLSchema#' ))
+    FILTER (!CONTAINS(STR(?term), 'http://www.w3.org/1999/02/22-rdf-syntax-ns#' ))
+    FILTER (!CONTAINS(STR(?term), 'http://www.w3.org/2000/01/rdf-schema#' ))
+    FILTER (!CONTAINS(STR(?term), 'http://www.w3.org/XML/1998/namespace' ))
+
+    # FILTER (CONTAINS(STR(?term), 'https://github.com/tibonto/aeon#' ))
+
+}
+ORDER BY ?term
