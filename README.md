@@ -3,6 +3,10 @@
 Author: Tatyana Sheveleva
 
 
+# VIO Overview
+
+**[View VIO ontology in WebVOWL](http://www.visualdataweb.de/webvowl/#iri=https://raw.githubusercontent.com/tibonto/vio/main/Visual_Inspection_Ontology.ttl)**
+
 ## All VIO terms and imported terms 
 
 ```
