@@ -248,13 +248,17 @@ sosa:resultTime rdf:type owl:DatatypeProperty ;
 ###  https://github.com/tibonto/vio#isLocatedInArea
 vio:isLocatedInArea rdf:type owl:DatatypeProperty ;
                     rdfs:domain vio:Defect ;
-                    rdfs:range xsd:string .
+                    rdfs:range xsd:string ;
+                    rdfs:comment "besindet sich im Bereich"@de ,
+                                 "is located in Area"@en .
 
 
 ###  https://github.com/tibonto/vio#requiresCorrectiveAction
 vio:requiresCorrectiveAction rdf:type owl:DatatypeProperty ;
                              rdfs:domain vio:Defect ;
-                             rdfs:range xsd:boolean .
+                             rdfs:range xsd:boolean ;
+                             rdfs:comment "erfordert Korrekturmaßnahme"@de ,
+                                          "requires Correktive Action"@en .
 
 
 #################################################################
