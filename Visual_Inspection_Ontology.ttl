@@ -142,16 +142,6 @@ sosa:hasFeatureOfInterest rdf:type owl:ObjectProperty ;
                           skos:example "For example, in an Observation of the weight of a person, the FeatureOfInterest is the person and the property is its weight."@en .
 
 
-###  http://www.w3.org/ns/sosa/hasResult
-sosa:hasResult rdf:type owl:ObjectProperty ;
-               schema:domainIncludes sosa:Observation ;
-               schema:rangeIncludes sosa:Result ;
-               rdfs:comment "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample."@en ;
-               rdfs:isDefinedBy sosa: ;
-               rdfs:label "has result"@en ;
-               skos:definition "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample."@en .
-
-
 ###  http://www.w3.org/ns/sosa/isFeatureOfInterestOf
 sosa:isFeatureOfInterestOf rdf:type owl:ObjectProperty ;
                            schema:domainIncludes sosa:FeatureOfInterest ;
@@ -240,19 +230,12 @@ ssn:wasOriginatedBy rdf:type owl:ObjectProperty .
 #    Data properties
 #################################################################
 
-###  http://www.w3.org/ns/sosa/hasSimpleResult
-sosa:hasSimpleResult rdf:type owl:DatatypeProperty ;
-                     schema:domainIncludes sosa:Observation ;
-                     rdfs:comment "The simple value of an Observation or Actuation or act of Sampling."@en ;
-                     rdfs:isDefinedBy sosa: ;
-                     rdfs:label "has simple result"@en ;
-                     skos:definition "The simple value of an Observation or Actuation or act of Sampling."@en ;
-                     skos:example "For instance, the values 23 or true."@en .
-
-
 ###  http://www.w3.org/ns/sosa/resultTime
 sosa:resultTime rdf:type owl:DatatypeProperty ;
-                schema:domainIncludes sosa:Observation ;
+                rdfs:range xsd:dateTime ;
+                schema:domainIncludes sosa:Actuation ,
+                                      sosa:Observation ,
+                                      sosa:Sampling ;
                 rdfs:comment "The result time is the instant of time when the Observation, Actuation or Sampling activity was completed."@en ;
                 rdfs:isDefinedBy sosa: ;
                 rdfs:label "result time"@en ;
@@ -277,7 +260,6 @@ vio:requiresCorrectiveAction rdf:type owl:DatatypeProperty ;
 
 ###  http://www.w3.org/ns/prov#Agent
 prov:Agent rdf:type owl:Class ;
-           rdfs:subClassOf sosa:Sensor ;
            rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
            rdfs:label "Agent" ;
            prov:category "starting-point" ;
@@ -336,20 +318,12 @@ sosa:Observation rdf:type owl:Class ;
                                    owl:allValuesFrom sosa:FeatureOfInterest
                                  ] ,
                                  [ rdf:type owl:Restriction ;
-                                   owl:onProperty sosa:hasResult ;
-                                   owl:allValuesFrom sosa:Result
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
                                    owl:onProperty sosa:madeBySensor ;
                                    owl:allValuesFrom sosa:Sensor
                                  ] ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty sosa:observedProperty ;
                                    owl:allValuesFrom sosa:ObservableProperty
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty sosa:hasResult ;
-                                   owl:minCardinality "1"^^xsd:nonNegativeInteger
                                  ] ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty sosa:hasFeatureOfInterest ;
@@ -382,17 +356,9 @@ sosa:Observation rdf:type owl:Class ;
                  skos:example "The activity of estimating the intensity of an Earthquake using the Mercalli intensity scale is an Observation as is measuring the moment magnitude, i.e., the energy released by said earthquake."@en .
 
 
-###  http://www.w3.org/ns/sosa/Result
-sosa:Result rdf:type owl:Class ;
-            rdfs:comment "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property."@en ;
-            rdfs:isDefinedBy sosa: ;
-            rdfs:label "Result"@en ;
-            skos:definition "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property."@en ;
-            skos:example "The value 20 as the height of a certain tree together with the unit, e.g., Meter."@en .
-
-
 ###  http://www.w3.org/ns/sosa/Sensor
 sosa:Sensor rdf:type owl:Class ;
+            rdfs:subClassOf prov:Agent ;
             rdfs:comment "Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms."@en ;
             rdfs:isDefinedBy sosa: ;
             rdfs:label "Sensor"@en ;
@@ -428,6 +394,11 @@ vio:Input_Visual_Inspection rdf:type owl:Class ;
 ###  https://github.com/tibonto/vio#Output_Visual_Inspection
 vio:Output_Visual_Inspection rdf:type owl:Class ;
                              rdfs:subClassOf vio:Visual_Inspection .
+
+
+###  https://github.com/tibonto/vio#Sample
+vio:Sample rdf:type owl:Class ;
+           rdfs:subClassOf sosa:FeatureOfInterest .
 
 
 ###  https://github.com/tibonto/vio#Visual_Inspection
@@ -669,8 +640,8 @@ sosa:actsOnProperty rdfs:label "acts on property"@en ;
 
 
 sosa:hasSample skos:definition "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
-               rdfs:label "has sample"@en ;
                rdfs:comment "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
+               rdfs:label "has sample"@en ;
                schema:domainIncludes sosa:FeatureOfInterest ;
                rdfs:isDefinedBy sosa: .
 
@@ -700,8 +671,7 @@ sosa:isResultOf rdfs:isDefinedBy sosa: ;
                 schema:rangeIncludes sosa:Observation ;
                 rdfs:label "is result of"@en ;
                 rdfs:comment "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it."@en ;
-                skos:definition "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it."@en ;
-                schema:domainIncludes sosa:Result .
+                skos:definition "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it."@en .
 
 
 sosa:isSampleOf rdfs:comment "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."@en ;
