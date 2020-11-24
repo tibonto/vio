@@ -16,8 +16,11 @@
 
 <https://github.com/tibonto/vio#> rdf:type owl:Ontology ;
                                    owl:versionIRI <https://github.com/tibonto/vio#0.0.1> ;
-                                   dcterms:creator "Common Research Centre 1153"@en ;
-                                   dcterms:title "Visual Inspection Ontology"@en ;
+                                   dcterms:creator "Tatyana Sheveleva, André Castro"@en ;
+                                   dcterms:description "Diese Ontologie representiert die Sichtprüfung einer Probe, die vor und nach einer Wärmebehandlung stattfindet."@de ,
+                                                       "This ontology represents visual inspection of a sample before and after heat treatment."@en ;
+                                   dcterms:title "Ontologie der Sichtprüfung"@de ,
+                                                 "Visual Inspection Ontology"@en ;
                                    owl:versionInfo "0.0.1"@en .
 
 #################################################################
