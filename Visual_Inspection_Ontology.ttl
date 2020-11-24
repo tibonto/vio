@@ -408,6 +408,13 @@ vio:Input_Visual_Inspection rdf:type owl:Class ;
                                        "Input Visual Inspection"@en .
 
 
+###  https://github.com/tibonto/vio#Offset
+vio:Offset rdf:type owl:Class ;
+           rdfs:subClassOf vio:Defect ;
+           rdfs:label "Offset"@en ,
+                      "Versatz"@de .
+
+
 ###  https://github.com/tibonto/vio#Output_Visual_Inspection
 vio:Output_Visual_Inspection rdf:type owl:Class ;
                              rdfs:subClassOf vio:Visual_Inspection ;
@@ -669,6 +676,62 @@ vio:Input_Visual_Inspection_6 rdf:type owl:NamedIndividual ,
                                        vio:Input_Visual_Inspection ;
                               rdfs:label "Eingangsssichtprüfung 6"@de ,
                                          "Input Visual Inspection 6"@en .
+
+
+###  https://github.com/tibonto/vio#Offset_1
+vio:Offset_1 rdf:type owl:NamedIndividual ,
+                      vio:Offset ;
+             rdfs:label "Offset 1"@en ,
+                        "Versatz 1"@de .
+
+
+###  https://github.com/tibonto/vio#Offset_2
+vio:Offset_2 rdf:type owl:NamedIndividual ,
+                      vio:Offset ;
+             rdfs:label "Offset 2"@en ,
+                        "Versatz 2"@de .
+
+
+###  https://github.com/tibonto/vio#Offset_3
+vio:Offset_3 rdf:type owl:NamedIndividual ,
+                      vio:Offset ;
+             rdfs:label "Offset 3"@en ,
+                        "Versatz 3"@de .
+
+
+###  https://github.com/tibonto/vio#Offset_4
+vio:Offset_4 rdf:type owl:NamedIndividual ,
+                      vio:Offset ;
+             rdfs:label "Offset 4"@en ,
+                        "Versatz 4"@de .
+
+
+###  https://github.com/tibonto/vio#Offset_5
+vio:Offset_5 rdf:type owl:NamedIndividual ,
+                      vio:Offset ;
+             rdfs:label "Offset 5"@en ,
+                        "Versatz 5"@de .
+
+
+###  https://github.com/tibonto/vio#Offset_6
+vio:Offset_6 rdf:type owl:NamedIndividual ,
+                      vio:Offset ;
+             rdfs:label "Offset 6"@en ,
+                        "Versatz 6"@de .
+
+
+###  https://github.com/tibonto/vio#Offset_7
+vio:Offset_7 rdf:type owl:NamedIndividual ,
+                      vio:Offset ;
+             rdfs:label "Offset 7"@en ,
+                        "Versatz 7"@de .
+
+
+###  https://github.com/tibonto/vio#Offset_8
+vio:Offset_8 rdf:type owl:NamedIndividual ,
+                      vio:Offset ;
+             rdfs:label "Offset 8"@en ,
+                        "Versatz 8"@de .
 
 
 ###  https://github.com/tibonto/vio#Output_Visual_Inspection_1
