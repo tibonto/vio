@@ -428,217 +428,303 @@ vio:Visual_Inspection rdf:type owl:Class ;
 
 ###  https://github.com/tibonto/vio#Corrosion_1
 vio:Corrosion_1 rdf:type owl:NamedIndividual ,
-                         vio:Corrosion .
+                         vio:Corrosion ;
+                rdfs:label "Corrosion 1"@en ,
+                           "Korrosion 1"@de .
 
 
 ###  https://github.com/tibonto/vio#Corrosion_2
 vio:Corrosion_2 rdf:type owl:NamedIndividual ,
-                         vio:Corrosion .
+                         vio:Corrosion ;
+                rdfs:label "Corrosion 2"@en ,
+                           "Korrosion 2"@de .
 
 
 ###  https://github.com/tibonto/vio#Corrosion_3
 vio:Corrosion_3 rdf:type owl:NamedIndividual ,
-                         vio:Corrosion .
+                         vio:Corrosion ;
+                rdfs:label "Corrosion 3"@en ,
+                           "Korrosion 3"@de .
 
 
 ###  https://github.com/tibonto/vio#Corrosion_4
 vio:Corrosion_4 rdf:type owl:NamedIndividual ,
-                         vio:Corrosion .
+                         vio:Corrosion ;
+                rdfs:label "Corrosion 4"@en ,
+                           "Korrosion 4"@de .
 
 
 ###  https://github.com/tibonto/vio#Corrosion_5
 vio:Corrosion_5 rdf:type owl:NamedIndividual ,
-                         vio:Corrosion .
+                         vio:Corrosion ;
+                rdfs:label "Corrosion 5"@en ,
+                           "Korrosion 5"@de .
 
 
 ###  https://github.com/tibonto/vio#Corrosion_6
 vio:Corrosion_6 rdf:type owl:NamedIndividual ,
-                         vio:Corrosion .
+                         vio:Corrosion ;
+                rdfs:label "Corrosion 6"@en ,
+                           "Korrosion 6"@de .
 
 
 ###  https://github.com/tibonto/vio#Corrosion_7
 vio:Corrosion_7 rdf:type owl:NamedIndividual ,
-                         vio:Corrosion .
+                         vio:Corrosion ;
+                rdfs:label "Corrosion 7"@en ,
+                           "Korrosion 7"@de .
 
 
 ###  https://github.com/tibonto/vio#Corrosion_8
 vio:Corrosion_8 rdf:type owl:NamedIndividual ,
-                         vio:Corrosion .
+                         vio:Corrosion ;
+                rdfs:label "Corrosion 8"@en ,
+                           "Korrosion 8"@de .
 
 
 ###  https://github.com/tibonto/vio#Crack_1
 vio:Crack_1 rdf:type owl:NamedIndividual ,
-                     vio:Crack .
+                     vio:Crack ;
+            rdfs:label "Crack 1"@en ,
+                       "Riss 1"@de .
 
 
 ###  https://github.com/tibonto/vio#Crack_2
 vio:Crack_2 rdf:type owl:NamedIndividual ,
-                     vio:Crack .
+                     vio:Crack ;
+            rdfs:label "Crack 2"@en ,
+                       "Riss 2"@de .
 
 
 ###  https://github.com/tibonto/vio#Crack_3
 vio:Crack_3 rdf:type owl:NamedIndividual ,
-                     vio:Crack .
+                     vio:Crack ;
+            rdfs:label "Crack 3"@en ,
+                       "Riss 3"@de .
 
 
 ###  https://github.com/tibonto/vio#Crack_4
 vio:Crack_4 rdf:type owl:NamedIndividual ,
-                     vio:Crack .
+                     vio:Crack ;
+            rdfs:label "Crack 4"@en ,
+                       "Riss 4"@de .
 
 
 ###  https://github.com/tibonto/vio#Crack_5
 vio:Crack_5 rdf:type owl:NamedIndividual ,
-                     vio:Crack .
+                     vio:Crack ;
+            rdfs:label "Crack 5"@en ,
+                       "Riss 5"@de .
 
 
 ###  https://github.com/tibonto/vio#Crack_6
 vio:Crack_6 rdf:type owl:NamedIndividual ,
-                     vio:Crack .
+                     vio:Crack ;
+            rdfs:label "Crack 6"@en ,
+                       "Riss 6"@de .
 
 
 ###  https://github.com/tibonto/vio#Crack_7
 vio:Crack_7 rdf:type owl:NamedIndividual ,
-                     vio:Crack .
+                     vio:Crack ;
+            rdfs:label "Crack 7"@en ,
+                       "Riss 7"@de .
 
 
 ###  https://github.com/tibonto/vio#Crack_8
 vio:Crack_8 rdf:type owl:NamedIndividual ,
-                     vio:Crack .
+                     vio:Crack ;
+            rdfs:label "Crack 8"@en ,
+                       "Riss 8"@de .
 
 
 ###  https://github.com/tibonto/vio#Fused_Area_1
 vio:Fused_Area_1 rdf:type owl:NamedIndividual ,
-                          vio:Fused_Area .
+                          vio:Fused_Area ;
+                 rdfs:label "Fused Area 1"@en ,
+                            "aufgeschmolzener Bereich 1"@de .
 
 
 ###  https://github.com/tibonto/vio#Fused_Area_2
 vio:Fused_Area_2 rdf:type owl:NamedIndividual ,
-                          vio:Fused_Area .
+                          vio:Fused_Area ;
+                 rdfs:label "Fused Area 2"@en ,
+                            "aufgeschmolzener Bereich 2"@de .
 
 
 ###  https://github.com/tibonto/vio#Fused_Area_3
 vio:Fused_Area_3 rdf:type owl:NamedIndividual ,
-                          vio:Fused_Area .
+                          vio:Fused_Area ;
+                 rdfs:label "Fused Area 3"@en ,
+                            "aufgeschmolzener Bereich 3"@de .
 
 
 ###  https://github.com/tibonto/vio#Fused_Area_4
 vio:Fused_Area_4 rdf:type owl:NamedIndividual ,
-                          vio:Fused_Area .
+                          vio:Fused_Area ;
+                 rdfs:label "Fused Area 4"@en ,
+                            "aufgeschmolzener Bereich 4"@de .
 
 
 ###  https://github.com/tibonto/vio#Fused_Area_5
 vio:Fused_Area_5 rdf:type owl:NamedIndividual ,
-                          vio:Fused_Area .
+                          vio:Fused_Area ;
+                 rdfs:label "Fused Area 5"@en ,
+                            "aufgeschmolzener Bereich 5"@de .
 
 
 ###  https://github.com/tibonto/vio#Fused_Area_6
 vio:Fused_Area_6 rdf:type owl:NamedIndividual ,
-                          vio:Fused_Area .
+                          vio:Fused_Area ;
+                 rdfs:label "Fused Area 6"@en ,
+                            "aufgeschmolzener Bereich 6"@de .
 
 
 ###  https://github.com/tibonto/vio#Fused_Area_7
 vio:Fused_Area_7 rdf:type owl:NamedIndividual ,
-                          vio:Fused_Area .
+                          vio:Fused_Area ;
+                 rdfs:label "Fused Area 7"@en ,
+                            "aufgeschmolzener Bereich 7"@de .
 
 
 ###  https://github.com/tibonto/vio#Fused_Area_8
 vio:Fused_Area_8 rdf:type owl:NamedIndividual ,
-                          vio:Fused_Area .
+                          vio:Fused_Area ;
+                 rdfs:label "Fused Area 8"@en ,
+                            "aufgeschmolzener Bereich 8"@de .
 
 
 ###  https://github.com/tibonto/vio#Input_Visual_Inspection_12
 vio:Input_Visual_Inspection_12 rdf:type owl:NamedIndividual ,
-                                        vio:Input_Visual_Inspection .
+                                        vio:Input_Visual_Inspection ;
+                               rdfs:label "Eingangsssichtprüfung 12"@de ,
+                                          "Input Visual Inspection 12"@en .
 
 
 ###  https://github.com/tibonto/vio#Input_Visual_Inspection_13
 vio:Input_Visual_Inspection_13 rdf:type owl:NamedIndividual ,
-                                        vio:Input_Visual_Inspection .
+                                        vio:Input_Visual_Inspection ;
+                               rdfs:label "Eingangsssichtprüfung 13"@de ,
+                                          "Input Visual Inspection 13"@en .
 
 
 ###  https://github.com/tibonto/vio#Input_Visual_Inspection_14
 vio:Input_Visual_Inspection_14 rdf:type owl:NamedIndividual ,
-                                        vio:Input_Visual_Inspection .
+                                        vio:Input_Visual_Inspection ;
+                               rdfs:label "Eingangsssichtprüfung 14"@de ,
+                                          "Input Visual Inspection 14"@en .
 
 
 ###  https://github.com/tibonto/vio#Input_Visual_Inspection_18
 vio:Input_Visual_Inspection_18 rdf:type owl:NamedIndividual ,
-                                        vio:Input_Visual_Inspection .
+                                        vio:Input_Visual_Inspection ;
+                               rdfs:label "Eingangsssichtprüfung 18"@de ,
+                                          "Input Visual Inspection 18"@en .
 
 
 ###  https://github.com/tibonto/vio#Input_Visual_Inspection_20
 vio:Input_Visual_Inspection_20 rdf:type owl:NamedIndividual ,
-                                        vio:Input_Visual_Inspection .
+                                        vio:Input_Visual_Inspection ;
+                               rdfs:label "Eingangsssichtprüfung 20"@de ,
+                                          "Input Visual Inspection 20"@en .
 
 
 ###  https://github.com/tibonto/vio#Input_Visual_Inspection_21
 vio:Input_Visual_Inspection_21 rdf:type owl:NamedIndividual ,
-                                        vio:Input_Visual_Inspection .
+                                        vio:Input_Visual_Inspection ;
+                               rdfs:label "Eingangsssichtprüfung 21"@de ,
+                                          "Input Visual Inspection 21"@en .
 
 
 ###  https://github.com/tibonto/vio#Input_Visual_Inspection_3
 vio:Input_Visual_Inspection_3 rdf:type owl:NamedIndividual ,
-                                       vio:Input_Visual_Inspection .
+                                       vio:Input_Visual_Inspection ;
+                              rdfs:label "Eingangsssichtprüfung 3"@de ,
+                                         "Input Visual Inspection 3"@en .
 
 
 ###  https://github.com/tibonto/vio#Input_Visual_Inspection_4
 vio:Input_Visual_Inspection_4 rdf:type owl:NamedIndividual ,
-                                       vio:Input_Visual_Inspection .
+                                       vio:Input_Visual_Inspection ;
+                              rdfs:label "Eingangsssichtprüfung 4"@de ,
+                                         "Input Visual Inspection 4"@en .
 
 
 ###  https://github.com/tibonto/vio#Input_Visual_Inspection_43
 vio:Input_Visual_Inspection_43 rdf:type owl:NamedIndividual ,
-                                        vio:Input_Visual_Inspection .
+                                        vio:Input_Visual_Inspection ;
+                               rdfs:label "Eingangsssichtprüfung 43"@de ,
+                                          "Input Visual Inspection 43"@en .
 
 
 ###  https://github.com/tibonto/vio#Input_Visual_Inspection_6
 vio:Input_Visual_Inspection_6 rdf:type owl:NamedIndividual ,
-                                       vio:Input_Visual_Inspection .
+                                       vio:Input_Visual_Inspection ;
+                              rdfs:label "Eingangsssichtprüfung 6"@de ,
+                                         "Input Visual Inspection 6"@en .
 
 
 ###  https://github.com/tibonto/vio#Output_Visual_Inspection_1
 vio:Output_Visual_Inspection_1 rdf:type owl:NamedIndividual ,
-                                        vio:Output_Visual_Inspection .
+                                        vio:Output_Visual_Inspection ;
+                               rdfs:label "Ausgangssichtprüfung 1"@de ,
+                                          "Output Visual Inspection 1"@en .
 
 
 ###  https://github.com/tibonto/vio#Output_Visual_Inspection_10
 vio:Output_Visual_Inspection_10 rdf:type owl:NamedIndividual ,
-                                         vio:Output_Visual_Inspection .
+                                         vio:Output_Visual_Inspection ;
+                                rdfs:label "Ausgangssichtprüfung 10"@de ,
+                                           "Output Visual Inspection 10"@en .
 
 
 ###  https://github.com/tibonto/vio#Output_Visual_Inspection_12
 vio:Output_Visual_Inspection_12 rdf:type owl:NamedIndividual ,
-                                         vio:Output_Visual_Inspection .
+                                         vio:Output_Visual_Inspection ;
+                                rdfs:label "Ausgangssichtprüfung 12"@de ,
+                                           "Output Visual Inspection 12"@en .
 
 
 ###  https://github.com/tibonto/vio#Output_Visual_Inspection_2
 vio:Output_Visual_Inspection_2 rdf:type owl:NamedIndividual ,
-                                        vio:Output_Visual_Inspection .
+                                        vio:Output_Visual_Inspection ;
+                               rdfs:label "Ausgangssichtprüfung 2"@de ,
+                                          "Output Visual Inspection 2"@en .
 
 
 ###  https://github.com/tibonto/vio#Output_Visual_Inspection_23
 vio:Output_Visual_Inspection_23 rdf:type owl:NamedIndividual ,
-                                         vio:Output_Visual_Inspection .
+                                         vio:Output_Visual_Inspection ;
+                                rdfs:label "Ausgangssichtprüfung 23"@de ,
+                                           "Output Visual Inspection 23"@en .
 
 
 ###  https://github.com/tibonto/vio#Output_Visual_Inspection_28
 vio:Output_Visual_Inspection_28 rdf:type owl:NamedIndividual ,
-                                         vio:Output_Visual_Inspection .
+                                         vio:Output_Visual_Inspection ;
+                                rdfs:label "Ausgangssichtprüfung 28"@de ,
+                                           "Output Visual Inspection 28"@en .
 
 
 ###  https://github.com/tibonto/vio#Output_Visual_Inspection_6
 vio:Output_Visual_Inspection_6 rdf:type owl:NamedIndividual ,
-                                        vio:Output_Visual_Inspection .
+                                        vio:Output_Visual_Inspection ;
+                               rdfs:label "Ausgangssichtprüfung 6"@de ,
+                                          "Output Visual Inspection 6"@en .
 
 
 ###  https://github.com/tibonto/vio#Output_Visual_Inspection_7
 vio:Output_Visual_Inspection_7 rdf:type owl:NamedIndividual ,
-                                        vio:Output_Visual_Inspection .
+                                        vio:Output_Visual_Inspection ;
+                               rdfs:label "Ausgangssichtprüfung 7"@de ,
+                                          "Output Visual Inspection 7"@en .
 
 
 ###  https://github.com/tibonto/vio#Output_Visual_Inspection_9
 vio:Output_Visual_Inspection_9 rdf:type owl:NamedIndividual ,
-                                        vio:Output_Visual_Inspection .
+                                        vio:Output_Visual_Inspection ;
+                               rdfs:label "Ausgangssichtprüfung 9"@de ,
+                                          "Output Visual Inspection 9"@en .
 
 
 [ <http://xmlns.com/foaf/0.1/name> "W3C/OGC Spatial Data on the Web Working Group"@en
