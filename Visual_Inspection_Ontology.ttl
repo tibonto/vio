@@ -27,12 +27,17 @@
 #    Annotation properties
 #################################################################
 
+###  http://purl.org/dc/dcam/rangeIncludes
+<http://purl.org/dc/dcam/rangeIncludes> rdf:type owl:AnnotationProperty .
+
+
 ###  http://purl.org/dc/terms/created
 dcterms:created rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/creator
-dcterms:creator rdf:type owl:AnnotationProperty .
+dcterms:creator rdf:type owl:AnnotationProperty ;
+                rdfs:domain vio:Visual_Inspection .
 
 
 ###  http://purl.org/dc/terms/description
@@ -116,12 +121,30 @@ prov:sharesDefinitionWith rdf:type owl:AnnotationProperty .
 
 
 #################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
 #    Object Properties
 #################################################################
 
+###  http://www.w3.org/2002/07/owl#equivalentClass
+owl:equivalentClass rdf:type owl:ObjectProperty ;
+                    rdfs:domain dcterms:Agent ,
+                                rdfs:Class ;
+                    rdfs:range rdfs:Class ,
+                               prov:Agent ;
+                    rdfs:comment "The property that determines that two given classes are equivalent, and that is used to specify datatype definitions." ;
+                    rdfs:isDefinedBy owl: ;
+                    rdfs:label "equivalentClass" .
+
+
 ###  http://www.w3.org/ns/prov#hadRole
 prov:hadRole rdf:type owl:ObjectProperty ;
-             rdfs:range prov:Role ;
              rdfs:comment "The _optional_ Role that an Entity assumed in the context of an Activity. For example, :baking prov:used :spoon; prov:qualified [ a prov:Usage; prov:entity :spoon; prov:hadRole roles:mixing_implement ]."@en ,
                           "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>." ;
              rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
@@ -129,8 +152,7 @@ prov:hadRole rdf:type owl:ObjectProperty ;
              prov:category "qualified" ;
              prov:component "agents-responsibility" ;
              prov:editorsDefinition "prov:hadRole references the Role (i.e. the function of an entity with respect to an activity), in the context of an instantaneous usage, generation, association, start, and end."@en ;
-             prov:inverse "wasRoleIn" ;
-             prov:sharesDefinitionWith prov:Role .
+             prov:inverse "wasRoleIn" .
 
 
 ###  http://www.w3.org/ns/sosa/hasFeatureOfInterest
@@ -233,6 +255,10 @@ ssn:wasOriginatedBy rdf:type owl:ObjectProperty .
 #    Data properties
 #################################################################
 
+###  http://purl.org/dc/terms/issued
+dcterms:issued rdf:type owl:DatatypeProperty .
+
+
 ###  http://www.w3.org/ns/sosa/resultTime
 sosa:resultTime rdf:type owl:DatatypeProperty ;
                 rdfs:range xsd:dateTime ;
@@ -265,6 +291,17 @@ vio:requiresCorrectiveAction rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
+###  http://purl.org/dc/terms/Agent
+dcterms:Agent rdf:type owl:Class ;
+              rdfs:comment "A resource that acts or has the power to act."@en ;
+              rdfs:isDefinedBy dcterms: ;
+              rdfs:label "Agent"@en .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Class
+rdfs:Class rdf:type owl:Class .
+
+
 ###  http://www.w3.org/ns/prov#Agent
 prov:Agent rdf:type owl:Class ;
            rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
@@ -286,18 +323,6 @@ prov:Person rdf:type owl:Class ;
             prov:definition "Person agents are people."@en ;
             prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
             prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-types"^^xsd:anyURI .
-
-
-###  http://www.w3.org/ns/prov#Role
-prov:Role rdf:type owl:Class ;
-          rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-          rdfs:label "Role" ;
-          rdfs:seeAlso prov:hadRole ;
-          prov:category "qualified" ;
-          prov:component "agents-responsibility" ;
-          prov:definition "A role is the function of an entity or agent with respect to an activity, in the context of a usage, generation, invalidation, association, start, and end."@en ;
-          prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-attribute-role"^^xsd:anyURI ;
-          prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-attribute"^^xsd:anyURI .
 
 
 ###  http://www.w3.org/ns/sosa/FeatureOfInterest
@@ -439,6 +464,11 @@ vio:Visual_Inspection rdf:type owl:Class ;
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:NamedIndividual ;
+                dcterms:issued "2008-01-14"^^xsd:date .
+
 
 ###  https://github.com/tibonto/vio#Corrosion_1
 vio:Corrosion_1 rdf:type owl:NamedIndividual ,
@@ -804,11 +834,18 @@ vio:Output_Visual_Inspection_9 rdf:type owl:NamedIndividual ,
 #    Annotations
 #################################################################
 
+dcterms:creator <http://purl.org/dc/dcam/rangeIncludes> dcterms:Agent ;
+                 rdfs:isDefinedBy dcterms: ;
+                 dcterms:description "Recommended practice is to identify the creator with a URI.  If this is not possible or feasible, a literal value that identifies the creator may be provided."@en ;
+                 rdfs:comment "An entity responsible for making the resource."@en ;
+                 rdfs:label "Creator"@en .
+
+
 sosa:actsOnProperty rdfs:label "acts on property"@en ;
-                     skos:example "In the activity (Actuation) of automatically closing a window if the temperature in a room drops below 20 degrees Celsius, the property on which the Actuator acts upon is the state of the window as it changes from being open to being closed. "@en ;
-                     skos:definition "Relation between an Actuation and the property of a FeatureOfInterest it is acting upon."@en ;
-                     rdfs:isDefinedBy sosa: ;
-                     rdfs:comment "Relation between an Actuation and the property of a FeatureOfInterest it is acting upon."@en .
+                    skos:example "In the activity (Actuation) of automatically closing a window if the temperature in a room drops below 20 degrees Celsius, the property on which the Actuator acts upon is the state of the window as it changes from being open to being closed. "@en ;
+                    skos:definition "Relation between an Actuation and the property of a FeatureOfInterest it is acting upon."@en ;
+                    rdfs:isDefinedBy sosa: ;
+                    rdfs:comment "Relation between an Actuation and the property of a FeatureOfInterest it is acting upon."@en .
 
 
 sosa:hasSample skos:definition "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
@@ -848,8 +885,8 @@ sosa:isResultOf rdfs:isDefinedBy sosa: ;
 
 sosa:isSampleOf rdfs:comment "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."@en ;
                 skos:definition "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."@en ;
-                rdfs:isDefinedBy sosa: ;
                 schema:rangeIncludes sosa:FeatureOfInterest ;
+                rdfs:isDefinedBy sosa: ;
                 rdfs:label "is sample of"@en .
 
 
