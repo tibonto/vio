@@ -132,18 +132,6 @@ xsd:date rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  http://www.w3.org/ns/prov#hadRole
-prov:hadRole rdf:type owl:ObjectProperty ;
-             rdfs:comment "The _optional_ Role that an Entity assumed in the context of an Activity. For example, :baking prov:used :spoon; prov:qualified [ a prov:Usage; prov:entity :spoon; prov:hadRole roles:mixing_implement ]."@en ,
-                          "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>." ;
-             rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-             rdfs:label "hadRole" ;
-             prov:category "qualified" ;
-             prov:component "agents-responsibility" ;
-             prov:editorsDefinition "prov:hadRole references the Role (i.e. the function of an entity with respect to an activity), in the context of an instantaneous usage, generation, association, start, and end."@en ;
-             prov:inverse "wasRoleIn" .
-
-
 ###  http://www.w3.org/ns/sosa/hasFeatureOfInterest
 sosa:hasFeatureOfInterest rdf:type owl:ObjectProperty ;
                           owl:inverseOf sosa:isFeatureOfInterestOf ;
@@ -175,27 +163,6 @@ sosa:isObservedBy rdf:type owl:ObjectProperty ;
                   rdfs:isDefinedBy sosa: ;
                   rdfs:label "is observed by"@en ;
                   skos:definition "Relation between an ObservableProperty and the Sensor able to observe it."@en .
-
-
-###  http://www.w3.org/ns/sosa/madeBySensor
-sosa:madeBySensor rdf:type owl:ObjectProperty ;
-                  owl:inverseOf sosa:madeObservation ;
-                  schema:domainIncludes sosa:Observation ;
-                  schema:rangeIncludes sosa:Sensor ;
-                  rdfs:comment "Relation between an Observation and the Sensor which made the Observation."@en ;
-                  rdfs:isDefinedBy sosa: ;
-                  rdfs:label "made by sensor"@en ;
-                  skos:definition "Relation between an Observation and the Sensor which made the Observation."@en .
-
-
-###  http://www.w3.org/ns/sosa/madeObservation
-sosa:madeObservation rdf:type owl:ObjectProperty ;
-                     schema:domainIncludes sosa:Sensor ;
-                     schema:rangeIncludes sosa:Observation ;
-                     rdfs:comment "Relation between a Sensor and an Observation made by the Sensor."@en ;
-                     rdfs:isDefinedBy sosa: ;
-                     rdfs:label "made observation"@en ;
-                     skos:definition "Relation between a Sensor and an Observation made by the Sensor."@en .
 
 
 ###  http://www.w3.org/ns/sosa/observedProperty
@@ -241,8 +208,9 @@ ssn:wasOriginatedBy rdf:type owl:ObjectProperty .
 
 
 ###  https://github.com/tibonto/vio#made
-vio:made rdf:type owl:ObjectProperty ,
-                  owl:InverseFunctionalProperty ;
+vio:made rdf:type owl:ObjectProperty ;
+         owl:inverseOf vio:madeBy ;
+         rdf:type owl:InverseFunctionalProperty ;
          rdfs:domain prov:Agent ;
          rdfs:range vio:Visual_Inspection ;
          rdfs:label "made"@en .
@@ -344,19 +312,11 @@ sosa:Observation rdf:type owl:Class ;
                                    owl:allValuesFrom sosa:FeatureOfInterest
                                  ] ,
                                  [ rdf:type owl:Restriction ;
-                                   owl:onProperty sosa:madeBySensor ;
-                                   owl:allValuesFrom sosa:Sensor
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
                                    owl:onProperty sosa:observedProperty ;
                                    owl:allValuesFrom sosa:ObservableProperty
                                  ] ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty sosa:hasFeatureOfInterest ;
-                                   owl:cardinality "1"^^xsd:nonNegativeInteger
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty sosa:madeBySensor ;
                                    owl:cardinality "1"^^xsd:nonNegativeInteger
                                  ] ,
                                  [ rdf:type owl:Restriction ;
@@ -842,14 +802,14 @@ sosa:actsOnProperty rdfs:label "acts on property"@en ;
 
 
 sosa:hasSample skos:definition "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
-               rdfs:comment "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
                rdfs:label "has sample"@en ;
+               rdfs:comment "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
                schema:domainIncludes sosa:FeatureOfInterest ;
                rdfs:isDefinedBy sosa: .
 
 
-sosa:hosts rdfs:comment "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it."@en ;
-           rdfs:isDefinedBy sosa: ;
+sosa:hosts rdfs:isDefinedBy sosa: ;
+           rdfs:comment "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it."@en ;
            skos:definition "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it."@en ;
            schema:rangeIncludes sosa:Sensor ;
            rdfs:label "hosts"@en .
@@ -878,8 +838,8 @@ sosa:isResultOf rdfs:isDefinedBy sosa: ;
 
 sosa:isSampleOf rdfs:comment "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."@en ;
                 skos:definition "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."@en ;
-                schema:rangeIncludes sosa:FeatureOfInterest ;
                 rdfs:isDefinedBy sosa: ;
+                schema:rangeIncludes sosa:FeatureOfInterest ;
                 rdfs:label "is sample of"@en .
 
 
