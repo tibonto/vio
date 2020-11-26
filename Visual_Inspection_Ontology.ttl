@@ -132,17 +132,6 @@ xsd:date rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  http://www.w3.org/2002/07/owl#equivalentClass
-owl:equivalentClass rdf:type owl:ObjectProperty ;
-                    rdfs:domain dcterms:Agent ,
-                                rdfs:Class ;
-                    rdfs:range rdfs:Class ,
-                               prov:Agent ;
-                    rdfs:comment "The property that determines that two given classes are equivalent, and that is used to specify datatype definitions." ;
-                    rdfs:isDefinedBy owl: ;
-                    rdfs:label "equivalentClass" .
-
-
 ###  http://www.w3.org/ns/prov#hadRole
 prov:hadRole rdf:type owl:ObjectProperty ;
              rdfs:comment "The _optional_ Role that an Entity assumed in the context of an Activity. For example, :baking prov:used :spoon; prov:qualified [ a prov:Usage; prov:entity :spoon; prov:hadRole roles:mixing_implement ]."@en ,
@@ -251,6 +240,22 @@ sosa:usedProcedure rdf:type owl:ObjectProperty ;
 ssn:wasOriginatedBy rdf:type owl:ObjectProperty .
 
 
+###  https://github.com/tibonto/vio#made
+vio:made rdf:type owl:ObjectProperty ,
+                  owl:InverseFunctionalProperty ;
+         rdfs:domain prov:Agent ;
+         rdfs:range vio:Visual_Inspection ;
+         rdfs:label "made"@en .
+
+
+###  https://github.com/tibonto/vio#madeBy
+vio:madeBy rdf:type owl:ObjectProperty ,
+                    owl:InverseFunctionalProperty ;
+           rdfs:domain vio:Visual_Inspection ;
+           rdfs:range prov:Agent ;
+           rdfs:label "made by"@en .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -290,17 +295,6 @@ vio:requiresCorrectiveAction rdf:type owl:DatatypeProperty ;
 #################################################################
 #    Classes
 #################################################################
-
-###  http://purl.org/dc/terms/Agent
-dcterms:Agent rdf:type owl:Class ;
-              rdfs:comment "A resource that acts or has the power to act."@en ;
-              rdfs:isDefinedBy dcterms: ;
-              rdfs:label "Agent"@en .
-
-
-###  http://www.w3.org/2000/01/rdf-schema#Class
-rdfs:Class rdf:type owl:Class .
-
 
 ###  http://www.w3.org/ns/prov#Agent
 prov:Agent rdf:type owl:Class ;
@@ -834,8 +828,7 @@ vio:Output_Visual_Inspection_9 rdf:type owl:NamedIndividual ,
 #    Annotations
 #################################################################
 
-dcterms:creator <http://purl.org/dc/dcam/rangeIncludes> dcterms:Agent ;
-                 rdfs:isDefinedBy dcterms: ;
+dcterms:creator rdfs:isDefinedBy dcterms: ;
                  dcterms:description "Recommended practice is to identify the creator with a URI.  If this is not possible or feasible, a literal value that identifies the creator may be provided."@en ;
                  rdfs:comment "An entity responsible for making the resource."@en ;
                  rdfs:label "Creator"@en .
