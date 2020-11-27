@@ -12,6 +12,7 @@ PREFIX sosa: <http://www.w3.org/ns/sosa/>
 PREFIX ssn: <http://www.w3.org/ns/ssn/> 
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX schema: <http://schema.org/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
 PREFIX vio: <https://github.com/tibonto/vio#>
 
 
@@ -24,8 +25,7 @@ WHERE {
     {?term rdf:type owl:ObjectProperty.}
     UNION 
     {?term rdf:type owl:Class. }
-    UNION 
-    {?term rdf:type owl:AnnotationProperty. }
+
 
     ?term rdf:type ?termType.
     OPTIONAL{ ?term rdfs:range ?range. }

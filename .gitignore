@@ -10,7 +10,7 @@
 !scripts/
 !scripts/robot_owl2ttl.sh
 !queries/
-!queries/query_terms.rq
+!queries/**.rq
 catalog-v001.xml
 !docs/
 !docs/*
