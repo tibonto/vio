@@ -92,6 +92,10 @@ prov:category rdf:type owl:AnnotationProperty .
 prov:component rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/ns/prov#constraints
+prov:constraints rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/ns/prov#definition
 prov:definition rdf:type owl:AnnotationProperty .
 
@@ -110,6 +114,10 @@ prov:inverse rdf:type owl:AnnotationProperty .
 
 ###  http://www.w3.org/ns/prov#n
 prov:n rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/prov#qualifiedForm
+prov:qualifiedForm rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/ns/prov#sharesDefinitionWith
@@ -131,6 +139,40 @@ xsd:date rdf:type rdfs:Datatype .
 #################################################################
 #    Object Properties
 #################################################################
+
+###  http://www.w3.org/ns/prov#used
+prov:used rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf prov:wasInfluencedBy ;
+          rdfs:domain prov:Activity ;
+          rdfs:range prov:Entity ;
+          rdfs:comment "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en ;
+          rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+          rdfs:label "used" ;
+          prov:category "starting-point" ;
+          prov:component "entities-activities" ;
+          prov:inverse "wasUsedBy" ;
+          prov:qualifiedForm prov:Usage ,
+                             prov:qualifiedUsage .
+
+
+###  http://www.w3.org/ns/prov#wasAssociatedWith
+prov:wasAssociatedWith rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf prov:wasInfluencedBy ;
+                       rdfs:domain prov:Activity ;
+                       rdfs:range prov:Agent ;
+                       rdfs:comment "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."@en ;
+                       rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                       rdfs:label "wasAssociatedWith" ;
+                       prov:category "starting-point" ;
+                       prov:component "agents-responsibility" ;
+                       prov:inverse "wasAssociateFor" ;
+                       prov:qualifiedForm prov:Association ,
+                                          prov:qualifiedAssociation .
+
+
+###  http://www.w3.org/ns/prov#wasInfluencedBy
+prov:wasInfluencedBy rdf:type owl:ObjectProperty .
+
 
 ###  http://www.w3.org/ns/sosa/hasFeatureOfInterest
 sosa:hasFeatureOfInterest rdf:type owl:ObjectProperty ;
@@ -264,6 +306,19 @@ vio:requiresCorrectiveAction rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
+###  http://www.w3.org/ns/prov#Activity
+prov:Activity rdf:type owl:Class ;
+              owl:disjointWith prov:Entity ;
+              rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+              rdfs:label "Activity" ;
+              prov:category "starting-point" ;
+              prov:component "entities-activities" ;
+              prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+              prov:definition "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." ;
+              prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Activity"^^xsd:anyURI ;
+              prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Activity"^^xsd:anyURI .
+
+
 ###  http://www.w3.org/ns/prov#Agent
 prov:Agent rdf:type owl:Class ;
            rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
@@ -273,6 +328,23 @@ prov:Agent rdf:type owl:Class ;
            prov:definition "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity. "@en ;
            prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
            prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Agent"^^xsd:anyURI .
+
+
+###  http://www.w3.org/ns/prov#Entity
+prov:Entity rdf:type owl:Class ;
+            owl:disjointWith prov:InstantaneousEvent ;
+            rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+            rdfs:label "Entity" ;
+            prov:category "starting-point" ;
+            prov:component "entities-activities" ;
+            prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+            prov:definition "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en ;
+            prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-entity"^^xsd:anyURI ;
+            prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Entity"^^xsd:anyURI .
+
+
+###  http://www.w3.org/ns/prov#InstantaneousEvent
+prov:InstantaneousEvent rdf:type owl:Class .
 
 
 ###  http://www.w3.org/ns/prov#Person
@@ -307,7 +379,8 @@ sosa:ObservableProperty rdf:type owl:Class ;
 
 ###  http://www.w3.org/ns/sosa/Observation
 sosa:Observation rdf:type owl:Class ;
-                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                 rdfs:subClassOf prov:Activity ,
+                                 [ rdf:type owl:Restriction ;
                                    owl:onProperty sosa:hasFeatureOfInterest ;
                                    owl:allValuesFrom sosa:FeatureOfInterest
                                  ] ,
@@ -802,14 +875,14 @@ sosa:actsOnProperty rdfs:label "acts on property"@en ;
 
 
 sosa:hasSample skos:definition "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
-               rdfs:label "has sample"@en ;
                rdfs:comment "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
+               rdfs:label "has sample"@en ;
                schema:domainIncludes sosa:FeatureOfInterest ;
                rdfs:isDefinedBy sosa: .
 
 
-sosa:hosts rdfs:isDefinedBy sosa: ;
-           rdfs:comment "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it."@en ;
+sosa:hosts rdfs:comment "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it."@en ;
+           rdfs:isDefinedBy sosa: ;
            skos:definition "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it."@en ;
            schema:rangeIncludes sosa:Sensor ;
            rdfs:label "hosts"@en .
@@ -838,8 +911,8 @@ sosa:isResultOf rdfs:isDefinedBy sosa: ;
 
 sosa:isSampleOf rdfs:comment "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."@en ;
                 skos:definition "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."@en ;
-                rdfs:isDefinedBy sosa: ;
                 schema:rangeIncludes sosa:FeatureOfInterest ;
+                rdfs:isDefinedBy sosa: ;
                 rdfs:label "is sample of"@en .
 
 
