@@ -2,6 +2,9 @@
 
 Author: Tatyana Sheveleva
 
+# ![image](https://user-images.githubusercontent.com/54020275/139221376-448f7418-9878-49c1-a8d3-c7948cc199e9.png)
+
+
 
 # VIO Overview
 
