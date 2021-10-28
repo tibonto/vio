@@ -236,6 +236,19 @@ sosa:hasFeatureOfInterest rdf:type owl:ObjectProperty ;
                           skos:example "For example, in an Observation of the weight of a person, the FeatureOfInterest is the person and the property is its weight."@en .
 
 
+###  http://www.w3.org/ns/sosa/hasResult
+sosa:hasResult rdf:type owl:ObjectProperty ;
+               owl:inverseOf sosa:isResultOf ;
+               schema:domainIncludes sosa:Actuation ,
+                                     sosa:Observation ,
+                                     sosa:Sampling ;
+               schema:rangeIncludes sosa:Result ;
+               rdfs:comment "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample."@en ;
+               rdfs:isDefinedBy sosa: ;
+               rdfs:label "has result"@en ;
+               skos:definition "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample."@en .
+
+
 ###  http://www.w3.org/ns/sosa/isFeatureOfInterestOf
 sosa:isFeatureOfInterestOf rdf:type owl:ObjectProperty ;
                            schema:domainIncludes sosa:FeatureOfInterest ;
@@ -255,6 +268,18 @@ sosa:isObservedBy rdf:type owl:ObjectProperty ;
                   rdfs:isDefinedBy sosa: ;
                   rdfs:label "is observed by"@en ;
                   skos:definition "Relation between an ObservableProperty and the Sensor able to observe it."@en .
+
+
+###  http://www.w3.org/ns/sosa/isResultOf
+sosa:isResultOf rdf:type owl:ObjectProperty ;
+                schema:domainIncludes sosa:Result ;
+                schema:rangeIncludes sosa:Actuation ,
+                                     sosa:Observation ,
+                                     sosa:Sampling ;
+                rdfs:comment "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it."@en ;
+                rdfs:isDefinedBy sosa: ;
+                rdfs:label "is result of"@en ;
+                skos:definition "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it."@en .
 
 
 ###  http://www.w3.org/ns/sosa/observedProperty
@@ -297,6 +322,23 @@ sosa:usedProcedure rdf:type owl:ObjectProperty ;
 
 ###  http://www.w3.org/ns/ssn/wasOriginatedBy
 ssn:wasOriginatedBy rdf:type owl:ObjectProperty .
+
+
+###  https://github.com/tibonto/vio#hasDefect
+vio:hasDefect rdf:type owl:ObjectProperty ;
+              rdfs:domain vio:Sample ;
+              rdfs:range vio:Defect .
+
+
+###  https://github.com/tibonto/vio#hasDefectID
+vio:hasDefectID rdf:type owl:ObjectProperty ;
+                rdfs:domain vio:Defect .
+
+
+###  https://github.com/tibonto/vio#isOfType
+vio:isOfType rdf:type owl:ObjectProperty ;
+             rdfs:domain vio:Defect ;
+             rdfs:range vio:Defect_Type .
 
 
 ###  https://github.com/tibonto/vio#made
@@ -342,14 +384,6 @@ vio:isLocatedInArea rdf:type owl:DatatypeProperty ;
                     rdfs:range xsd:string ;
                     rdfs:comment "besindet sich im Bereich"@de ,
                                  "is located in Area"@en .
-
-
-###  https://github.com/tibonto/vio#requiresCorrectiveAction
-vio:requiresCorrectiveAction rdf:type owl:DatatypeProperty ;
-                             rdfs:domain vio:Defect ;
-                             rdfs:range xsd:boolean ;
-                             rdfs:comment "erfordert Korrekturmaßnahme"@de ,
-                                          "requires Correktive Action"@en .
 
 
 #################################################################
@@ -793,6 +827,15 @@ sosa:Observation rdf:type owl:Class ;
                  skos:example "The activity of estimating the intensity of an Earthquake using the Mercalli intensity scale is an Observation as is measuring the moment magnitude, i.e., the energy released by said earthquake."@en .
 
 
+###  http://www.w3.org/ns/sosa/Result
+sosa:Result rdf:type owl:Class ;
+            rdfs:comment "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property."@en ;
+            rdfs:isDefinedBy sosa: ;
+            rdfs:label "Result"@en ;
+            skos:definition "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property."@en ;
+            skos:example "The value 20 as the height of a certain tree together with the unit, e.g., Meter."@en .
+
+
 ###  http://www.w3.org/ns/sosa/Sensor
 sosa:Sensor rdf:type owl:Class ;
             rdfs:subClassOf prov:Agent ;
@@ -803,46 +846,37 @@ sosa:Sensor rdf:type owl:Class ;
             skos:example "Accelerometers, gyroscopes, barometers, magnetometers, and so forth are Sensors that are typically mounted on a modern smart phone (which acts as Platform). Other examples of sensors include the human eyes."@en .
 
 
-###  https://github.com/tibonto/vio#Corrosion
-vio:Corrosion rdf:type owl:Class ;
-              rdfs:subClassOf vio:Defect ;
-              rdfs:label "Corrosion"@en ,
-                         "Korrosion"@de .
-
-
-###  https://github.com/tibonto/vio#Crack
-vio:Crack rdf:type owl:Class ;
-          rdfs:subClassOf vio:Defect ;
-          rdfs:label "Crack"@en ,
-                     "Riss"@de .
+###  https://github.com/tibonto/vio#Critical_Defect
+vio:Critical_Defect rdf:type owl:Class ;
+                    rdfs:subClassOf vio:Defect ;
+                    owl:disjointWith vio:Uncritical_Defect .
 
 
 ###  https://github.com/tibonto/vio#Defect
 vio:Defect rdf:type owl:Class ;
-           rdfs:subClassOf sosa:ObservableProperty ;
+           rdfs:subClassOf sosa:ObservableProperty ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty vio:isOfType ;
+                             owl:someValuesFrom vio:Defect_Type
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty vio:isLocatedInArea ;
+                             owl:someValuesFrom xsd:string
+                           ] ;
            rdfs:label "Defect"@en ,
                       "Defekt"@de .
 
 
-###  https://github.com/tibonto/vio#Fused_Area
-vio:Fused_Area rdf:type owl:Class ;
-               rdfs:subClassOf vio:Defect ;
-               rdfs:label "Fused Area"@en ,
-                          "aufgeschmolzener Bereich"@de .
+###  https://github.com/tibonto/vio#Defect_Type
+vio:Defect_Type rdf:type owl:Class .
 
 
 ###  https://github.com/tibonto/vio#Input_Visual_Inspection
 vio:Input_Visual_Inspection rdf:type owl:Class ;
                             rdfs:subClassOf vio:Visual_Inspection ;
+                            owl:disjointWith vio:Output_Visual_Inspection ;
                             rdfs:label "Eingangssichtprüfung"@de ,
                                        "Input Visual Inspection"@en .
-
-
-###  https://github.com/tibonto/vio#Offset
-vio:Offset rdf:type owl:Class ;
-           rdfs:subClassOf vio:Defect ;
-           rdfs:label "Offset"@en ,
-                      "Versatz"@de .
 
 
 ###  https://github.com/tibonto/vio#Output_Visual_Inspection
@@ -859,6 +893,50 @@ vio:Sample rdf:type owl:Class ;
                       "Sample"@en .
 
 
+###  https://github.com/tibonto/vio#Sample_accepted
+vio:Sample_accepted rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Class ;
+                                          owl:unionOf ( [ owl:intersectionOf ( vio:Sample
+                                                                               [ rdf:type owl:Class ;
+                                                                                 owl:complementOf [ rdf:type owl:Restriction ;
+                                                                                                    owl:onProperty vio:hasDefect ;
+                                                                                                    owl:someValuesFrom vio:Defect
+                                                                                                  ]
+                                                                               ]
+                                                                             ) ;
+                                                          rdf:type owl:Class
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty vio:hasDefect ;
+                                                          owl:someValuesFrom vio:Uncritical_Defect
+                                                        ]
+                                                      )
+                                        ] ;
+                    rdfs:subClassOf sosa:Result ;
+                    rdfs:label "Probe akzeptiert"@de ,
+                               "Sample accepted"@en .
+
+
+###  https://github.com/tibonto/vio#Sample_rejected
+vio:Sample_rejected rdf:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( vio:Sample
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty vio:hasDefect ;
+                                                                 owl:someValuesFrom vio:Critical_Defect
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                    rdfs:subClassOf sosa:Result ;
+                    rdfs:label "Probe aussortiert"@de ,
+                               "Sample rejected"@en .
+
+
+###  https://github.com/tibonto/vio#Uncritical_Defect
+vio:Uncritical_Defect rdf:type owl:Class ;
+                      rdfs:subClassOf vio:Defect .
+
+
 ###  https://github.com/tibonto/vio#Visual_Inspection
 vio:Visual_Inspection rdf:type owl:Class ;
                       rdfs:subClassOf sosa:Observation ;
@@ -870,366 +948,30 @@ vio:Visual_Inspection rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
-###  http://purl.org/dc/terms/creator
-dcterms:creator rdf:type owl:NamedIndividual ;
-                dcterms:issued "2008-01-14"^^xsd:date .
+###  https://github.com/tibonto/vio#Corrosion
+vio:Corrosion rdf:type owl:NamedIndividual ,
+                       vio:Defect_Type ;
+              rdfs:label "Corrosion"@en ,
+                         "Korrosion"@de .
 
 
-###  https://github.com/tibonto/vio#Corrosion_1
-vio:Corrosion_1 rdf:type owl:NamedIndividual ,
-                         vio:Corrosion ;
-                rdfs:label "Corrosion 1"@en ,
-                           "Korrosion 1"@de .
+###  https://github.com/tibonto/vio#Crack
+vio:Crack rdf:type owl:NamedIndividual ,
+                   vio:Defect_Type ;
+          rdfs:label "Crack"@en ,
+                     "Riss"@de .
 
 
-###  https://github.com/tibonto/vio#Corrosion_2
-vio:Corrosion_2 rdf:type owl:NamedIndividual ,
-                         vio:Corrosion ;
-                rdfs:label "Corrosion 2"@en ,
-                           "Korrosion 2"@de .
+###  https://github.com/tibonto/vio#Offset
+vio:Offset rdf:type owl:NamedIndividual ,
+                    vio:Defect_Type ;
+           rdfs:label "Offset"@en ,
+                      "Versatz"@de .
 
 
-###  https://github.com/tibonto/vio#Corrosion_3
-vio:Corrosion_3 rdf:type owl:NamedIndividual ,
-                         vio:Corrosion ;
-                rdfs:label "Corrosion 3"@en ,
-                           "Korrosion 3"@de .
-
-
-###  https://github.com/tibonto/vio#Corrosion_4
-vio:Corrosion_4 rdf:type owl:NamedIndividual ,
-                         vio:Corrosion ;
-                rdfs:label "Corrosion 4"@en ,
-                           "Korrosion 4"@de .
-
-
-###  https://github.com/tibonto/vio#Corrosion_5
-vio:Corrosion_5 rdf:type owl:NamedIndividual ,
-                         vio:Corrosion ;
-                rdfs:label "Corrosion 5"@en ,
-                           "Korrosion 5"@de .
-
-
-###  https://github.com/tibonto/vio#Corrosion_6
-vio:Corrosion_6 rdf:type owl:NamedIndividual ,
-                         vio:Corrosion ;
-                rdfs:label "Corrosion 6"@en ,
-                           "Korrosion 6"@de .
-
-
-###  https://github.com/tibonto/vio#Corrosion_7
-vio:Corrosion_7 rdf:type owl:NamedIndividual ,
-                         vio:Corrosion ;
-                rdfs:label "Corrosion 7"@en ,
-                           "Korrosion 7"@de .
-
-
-###  https://github.com/tibonto/vio#Corrosion_8
-vio:Corrosion_8 rdf:type owl:NamedIndividual ,
-                         vio:Corrosion ;
-                rdfs:label "Corrosion 8"@en ,
-                           "Korrosion 8"@de .
-
-
-###  https://github.com/tibonto/vio#Crack_1
-vio:Crack_1 rdf:type owl:NamedIndividual ,
-                     vio:Crack ;
-            rdfs:label "Crack 1"@en ,
-                       "Riss 1"@de .
-
-
-###  https://github.com/tibonto/vio#Crack_2
-vio:Crack_2 rdf:type owl:NamedIndividual ,
-                     vio:Crack ;
-            rdfs:label "Crack 2"@en ,
-                       "Riss 2"@de .
-
-
-###  https://github.com/tibonto/vio#Crack_3
-vio:Crack_3 rdf:type owl:NamedIndividual ,
-                     vio:Crack ;
-            rdfs:label "Crack 3"@en ,
-                       "Riss 3"@de .
-
-
-###  https://github.com/tibonto/vio#Crack_4
-vio:Crack_4 rdf:type owl:NamedIndividual ,
-                     vio:Crack ;
-            rdfs:label "Crack 4"@en ,
-                       "Riss 4"@de .
-
-
-###  https://github.com/tibonto/vio#Crack_5
-vio:Crack_5 rdf:type owl:NamedIndividual ,
-                     vio:Crack ;
-            rdfs:label "Crack 5"@en ,
-                       "Riss 5"@de .
-
-
-###  https://github.com/tibonto/vio#Crack_6
-vio:Crack_6 rdf:type owl:NamedIndividual ,
-                     vio:Crack ;
-            rdfs:label "Crack 6"@en ,
-                       "Riss 6"@de .
-
-
-###  https://github.com/tibonto/vio#Crack_7
-vio:Crack_7 rdf:type owl:NamedIndividual ,
-                     vio:Crack ;
-            rdfs:label "Crack 7"@en ,
-                       "Riss 7"@de .
-
-
-###  https://github.com/tibonto/vio#Crack_8
-vio:Crack_8 rdf:type owl:NamedIndividual ,
-                     vio:Crack ;
-            rdfs:label "Crack 8"@en ,
-                       "Riss 8"@de .
-
-
-###  https://github.com/tibonto/vio#Fused_Area_1
-vio:Fused_Area_1 rdf:type owl:NamedIndividual ,
-                          vio:Fused_Area ;
-                 rdfs:label "Fused Area 1"@en ,
-                            "aufgeschmolzener Bereich 1"@de .
-
-
-###  https://github.com/tibonto/vio#Fused_Area_2
-vio:Fused_Area_2 rdf:type owl:NamedIndividual ,
-                          vio:Fused_Area ;
-                 rdfs:label "Fused Area 2"@en ,
-                            "aufgeschmolzener Bereich 2"@de .
-
-
-###  https://github.com/tibonto/vio#Fused_Area_3
-vio:Fused_Area_3 rdf:type owl:NamedIndividual ,
-                          vio:Fused_Area ;
-                 rdfs:label "Fused Area 3"@en ,
-                            "aufgeschmolzener Bereich 3"@de .
-
-
-###  https://github.com/tibonto/vio#Fused_Area_4
-vio:Fused_Area_4 rdf:type owl:NamedIndividual ,
-                          vio:Fused_Area ;
-                 rdfs:label "Fused Area 4"@en ,
-                            "aufgeschmolzener Bereich 4"@de .
-
-
-###  https://github.com/tibonto/vio#Fused_Area_5
-vio:Fused_Area_5 rdf:type owl:NamedIndividual ,
-                          vio:Fused_Area ;
-                 rdfs:label "Fused Area 5"@en ,
-                            "aufgeschmolzener Bereich 5"@de .
-
-
-###  https://github.com/tibonto/vio#Fused_Area_6
-vio:Fused_Area_6 rdf:type owl:NamedIndividual ,
-                          vio:Fused_Area ;
-                 rdfs:label "Fused Area 6"@en ,
-                            "aufgeschmolzener Bereich 6"@de .
-
-
-###  https://github.com/tibonto/vio#Fused_Area_7
-vio:Fused_Area_7 rdf:type owl:NamedIndividual ,
-                          vio:Fused_Area ;
-                 rdfs:label "Fused Area 7"@en ,
-                            "aufgeschmolzener Bereich 7"@de .
-
-
-###  https://github.com/tibonto/vio#Fused_Area_8
-vio:Fused_Area_8 rdf:type owl:NamedIndividual ,
-                          vio:Fused_Area ;
-                 rdfs:label "Fused Area 8"@en ,
-                            "aufgeschmolzener Bereich 8"@de .
-
-
-###  https://github.com/tibonto/vio#Input_Visual_Inspection_12
-vio:Input_Visual_Inspection_12 rdf:type owl:NamedIndividual ,
-                                        vio:Input_Visual_Inspection ;
-                               rdfs:label "Eingangsssichtprüfung 12"@de ,
-                                          "Input Visual Inspection 12"@en .
-
-
-###  https://github.com/tibonto/vio#Input_Visual_Inspection_13
-vio:Input_Visual_Inspection_13 rdf:type owl:NamedIndividual ,
-                                        vio:Input_Visual_Inspection ;
-                               rdfs:label "Eingangsssichtprüfung 13"@de ,
-                                          "Input Visual Inspection 13"@en .
-
-
-###  https://github.com/tibonto/vio#Input_Visual_Inspection_14
-vio:Input_Visual_Inspection_14 rdf:type owl:NamedIndividual ,
-                                        vio:Input_Visual_Inspection ;
-                               rdfs:label "Eingangsssichtprüfung 14"@de ,
-                                          "Input Visual Inspection 14"@en .
-
-
-###  https://github.com/tibonto/vio#Input_Visual_Inspection_18
-vio:Input_Visual_Inspection_18 rdf:type owl:NamedIndividual ,
-                                        vio:Input_Visual_Inspection ;
-                               rdfs:label "Eingangsssichtprüfung 18"@de ,
-                                          "Input Visual Inspection 18"@en .
-
-
-###  https://github.com/tibonto/vio#Input_Visual_Inspection_20
-vio:Input_Visual_Inspection_20 rdf:type owl:NamedIndividual ,
-                                        vio:Input_Visual_Inspection ;
-                               rdfs:label "Eingangsssichtprüfung 20"@de ,
-                                          "Input Visual Inspection 20"@en .
-
-
-###  https://github.com/tibonto/vio#Input_Visual_Inspection_21
-vio:Input_Visual_Inspection_21 rdf:type owl:NamedIndividual ,
-                                        vio:Input_Visual_Inspection ;
-                               rdfs:label "Eingangsssichtprüfung 21"@de ,
-                                          "Input Visual Inspection 21"@en .
-
-
-###  https://github.com/tibonto/vio#Input_Visual_Inspection_3
-vio:Input_Visual_Inspection_3 rdf:type owl:NamedIndividual ,
-                                       vio:Input_Visual_Inspection ;
-                              rdfs:label "Eingangsssichtprüfung 3"@de ,
-                                         "Input Visual Inspection 3"@en .
-
-
-###  https://github.com/tibonto/vio#Input_Visual_Inspection_4
-vio:Input_Visual_Inspection_4 rdf:type owl:NamedIndividual ,
-                                       vio:Input_Visual_Inspection ;
-                              rdfs:label "Eingangsssichtprüfung 4"@de ,
-                                         "Input Visual Inspection 4"@en .
-
-
-###  https://github.com/tibonto/vio#Input_Visual_Inspection_43
-vio:Input_Visual_Inspection_43 rdf:type owl:NamedIndividual ,
-                                        vio:Input_Visual_Inspection ;
-                               rdfs:label "Eingangsssichtprüfung 43"@de ,
-                                          "Input Visual Inspection 43"@en .
-
-
-###  https://github.com/tibonto/vio#Input_Visual_Inspection_6
-vio:Input_Visual_Inspection_6 rdf:type owl:NamedIndividual ,
-                                       vio:Input_Visual_Inspection ;
-                              rdfs:label "Eingangsssichtprüfung 6"@de ,
-                                         "Input Visual Inspection 6"@en .
-
-
-###  https://github.com/tibonto/vio#Offset_1
-vio:Offset_1 rdf:type owl:NamedIndividual ,
-                      vio:Offset ;
-             rdfs:label "Offset 1"@en ,
-                        "Versatz 1"@de .
-
-
-###  https://github.com/tibonto/vio#Offset_2
-vio:Offset_2 rdf:type owl:NamedIndividual ,
-                      vio:Offset ;
-             rdfs:label "Offset 2"@en ,
-                        "Versatz 2"@de .
-
-
-###  https://github.com/tibonto/vio#Offset_3
-vio:Offset_3 rdf:type owl:NamedIndividual ,
-                      vio:Offset ;
-             rdfs:label "Offset 3"@en ,
-                        "Versatz 3"@de .
-
-
-###  https://github.com/tibonto/vio#Offset_4
-vio:Offset_4 rdf:type owl:NamedIndividual ,
-                      vio:Offset ;
-             rdfs:label "Offset 4"@en ,
-                        "Versatz 4"@de .
-
-
-###  https://github.com/tibonto/vio#Offset_5
-vio:Offset_5 rdf:type owl:NamedIndividual ,
-                      vio:Offset ;
-             rdfs:label "Offset 5"@en ,
-                        "Versatz 5"@de .
-
-
-###  https://github.com/tibonto/vio#Offset_6
-vio:Offset_6 rdf:type owl:NamedIndividual ,
-                      vio:Offset ;
-             rdfs:label "Offset 6"@en ,
-                        "Versatz 6"@de .
-
-
-###  https://github.com/tibonto/vio#Offset_7
-vio:Offset_7 rdf:type owl:NamedIndividual ,
-                      vio:Offset ;
-             rdfs:label "Offset 7"@en ,
-                        "Versatz 7"@de .
-
-
-###  https://github.com/tibonto/vio#Offset_8
-vio:Offset_8 rdf:type owl:NamedIndividual ,
-                      vio:Offset ;
-             rdfs:label "Offset 8"@en ,
-                        "Versatz 8"@de .
-
-
-###  https://github.com/tibonto/vio#Output_Visual_Inspection_1
-vio:Output_Visual_Inspection_1 rdf:type owl:NamedIndividual ,
-                                        vio:Output_Visual_Inspection ;
-                               rdfs:label "Ausgangssichtprüfung 1"@de ,
-                                          "Output Visual Inspection 1"@en .
-
-
-###  https://github.com/tibonto/vio#Output_Visual_Inspection_10
-vio:Output_Visual_Inspection_10 rdf:type owl:NamedIndividual ,
-                                         vio:Output_Visual_Inspection ;
-                                rdfs:label "Ausgangssichtprüfung 10"@de ,
-                                           "Output Visual Inspection 10"@en .
-
-
-###  https://github.com/tibonto/vio#Output_Visual_Inspection_12
-vio:Output_Visual_Inspection_12 rdf:type owl:NamedIndividual ,
-                                         vio:Output_Visual_Inspection ;
-                                rdfs:label "Ausgangssichtprüfung 12"@de ,
-                                           "Output Visual Inspection 12"@en .
-
-
-###  https://github.com/tibonto/vio#Output_Visual_Inspection_2
-vio:Output_Visual_Inspection_2 rdf:type owl:NamedIndividual ,
-                                        vio:Output_Visual_Inspection ;
-                               rdfs:label "Ausgangssichtprüfung 2"@de ,
-                                          "Output Visual Inspection 2"@en .
-
-
-###  https://github.com/tibonto/vio#Output_Visual_Inspection_23
-vio:Output_Visual_Inspection_23 rdf:type owl:NamedIndividual ,
-                                         vio:Output_Visual_Inspection ;
-                                rdfs:label "Ausgangssichtprüfung 23"@de ,
-                                           "Output Visual Inspection 23"@en .
-
-
-###  https://github.com/tibonto/vio#Output_Visual_Inspection_28
-vio:Output_Visual_Inspection_28 rdf:type owl:NamedIndividual ,
-                                         vio:Output_Visual_Inspection ;
-                                rdfs:label "Ausgangssichtprüfung 28"@de ,
-                                           "Output Visual Inspection 28"@en .
-
-
-###  https://github.com/tibonto/vio#Output_Visual_Inspection_6
-vio:Output_Visual_Inspection_6 rdf:type owl:NamedIndividual ,
-                                        vio:Output_Visual_Inspection ;
-                               rdfs:label "Ausgangssichtprüfung 6"@de ,
-                                          "Output Visual Inspection 6"@en .
-
-
-###  https://github.com/tibonto/vio#Output_Visual_Inspection_7
-vio:Output_Visual_Inspection_7 rdf:type owl:NamedIndividual ,
-                                        vio:Output_Visual_Inspection ;
-                               rdfs:label "Ausgangssichtprüfung 7"@de ,
-                                          "Output Visual Inspection 7"@en .
-
-
-###  https://github.com/tibonto/vio#Output_Visual_Inspection_9
-vio:Output_Visual_Inspection_9 rdf:type owl:NamedIndividual ,
-                                        vio:Output_Visual_Inspection ;
-                               rdfs:label "Ausgangssichtprüfung 9"@de ,
-                                          "Output Visual Inspection 9"@en .
+###  https://github.com/tibonto/vio#fused_Area
+vio:fused_Area rdf:type owl:NamedIndividual ,
+                        vio:Defect_Type .
 
 
 [ <http://xmlns.com/foaf/0.1/name> "W3C/OGC Spatial Data on the Web Working Group"@en
@@ -1239,17 +981,11 @@ vio:Output_Visual_Inspection_9 rdf:type owl:NamedIndividual ,
 #    Annotations
 #################################################################
 
-dcterms:creator rdfs:isDefinedBy dcterms: ;
-                 dcterms:description "Recommended practice is to identify the creator with a URI.  If this is not possible or feasible, a literal value that identifies the creator may be provided."@en ;
-                 rdfs:comment "An entity responsible for making the resource."@en ;
-                 rdfs:label "Creator"@en .
-
-
 sosa:actsOnProperty rdfs:label "acts on property"@en ;
-                    skos:example "In the activity (Actuation) of automatically closing a window if the temperature in a room drops below 20 degrees Celsius, the property on which the Actuator acts upon is the state of the window as it changes from being open to being closed. "@en ;
-                    skos:definition "Relation between an Actuation and the property of a FeatureOfInterest it is acting upon."@en ;
-                    rdfs:isDefinedBy sosa: ;
-                    rdfs:comment "Relation between an Actuation and the property of a FeatureOfInterest it is acting upon."@en .
+                     skos:example "In the activity (Actuation) of automatically closing a window if the temperature in a room drops below 20 degrees Celsius, the property on which the Actuator acts upon is the state of the window as it changes from being open to being closed. "@en ;
+                     skos:definition "Relation between an Actuation and the property of a FeatureOfInterest it is acting upon."@en ;
+                     rdfs:isDefinedBy sosa: ;
+                     rdfs:comment "Relation between an Actuation and the property of a FeatureOfInterest it is acting upon."@en .
 
 
 sosa:hasSample skos:definition "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
@@ -1280,13 +1016,6 @@ sosa:isHostedBy rdfs:isDefinedBy sosa: ;
                 rdfs:comment "Relation between a Sensor, Actuator, Sampler, or Platform, and the Platform that it is mounted on or hosted by."@en .
 
 
-sosa:isResultOf rdfs:isDefinedBy sosa: ;
-                schema:rangeIncludes sosa:Observation ;
-                rdfs:label "is result of"@en ;
-                rdfs:comment "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it."@en ;
-                skos:definition "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it."@en .
-
-
 sosa:isSampleOf rdfs:comment "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."@en ;
                 skos:definition "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."@en ;
                 schema:rangeIncludes sosa:FeatureOfInterest ;
@@ -1310,6 +1039,52 @@ sosa:madeSampling rdfs:isDefinedBy sosa: ;
                   skos:definition "Relation between a Sampler (sampling device or entity) and the Sampling act it performed."@en ;
                   rdfs:comment "Relation between a Sampler (sampling device or entity) and the Sampling act it performed."@en ;
                   rdfs:label "made sampling"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( vio:Corrosion
+                        vio:Crack
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( vio:Corrosion
+                        vio:Offset
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( vio:Corrosion
+                        vio:fused_Area
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( vio:Crack
+                        vio:Offset
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( vio:Crack
+                        vio:fused_Area
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( vio:Offset
+                        vio:fused_Area
+                      )
+] .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
