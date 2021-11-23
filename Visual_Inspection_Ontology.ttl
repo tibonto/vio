@@ -258,15 +258,15 @@ sosa:observedProperty rdf:type owl:ObjectProperty ;
 
 ###  https://github.com/tibonto/vio#hasDefectOfType
 vio:hasDefectOfType rdf:type owl:ObjectProperty ;
-                    owl:inverseOf vio:isDefektofSample ;
+                    owl:inverseOf vio:isDefectOfSample ;
                     rdfs:domain vio:Sample ;
                     rdfs:range vio:Defect ;
                     rdfs:comment "has Defect of Type"@en ,
                                  "hat Defekt vom Typ"@de .
 
 
-###  https://github.com/tibonto/vio#isDefektofSample
-vio:isDefektofSample rdf:type owl:ObjectProperty ;
+###  https://github.com/tibonto/vio#isDefectOfSample
+vio:isDefectOfSample rdf:type owl:ObjectProperty ;
                      rdfs:domain vio:Defect ;
                      rdfs:range vio:Sample ;
                      rdfs:label "is Defect of Sample"@en ,
