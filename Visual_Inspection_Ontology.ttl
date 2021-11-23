@@ -236,19 +236,6 @@ sosa:hasFeatureOfInterest rdf:type owl:ObjectProperty ;
                           skos:example "For example, in an Observation of the weight of a person, the FeatureOfInterest is the person and the property is its weight."@en .
 
 
-###  http://www.w3.org/ns/sosa/hasResult
-sosa:hasResult rdf:type owl:ObjectProperty ;
-               owl:inverseOf sosa:isResultOf ;
-               schema:domainIncludes sosa:Actuation ,
-                                     sosa:Observation ,
-                                     sosa:Sampling ;
-               schema:rangeIncludes sosa:Result ;
-               rdfs:comment "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample."@en ;
-               rdfs:isDefinedBy sosa: ;
-               rdfs:label "has result"@en ;
-               skos:definition "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample."@en .
-
-
 ###  http://www.w3.org/ns/sosa/isFeatureOfInterestOf
 sosa:isFeatureOfInterestOf rdf:type owl:ObjectProperty ;
                            schema:domainIncludes sosa:FeatureOfInterest ;
@@ -257,29 +244,6 @@ sosa:isFeatureOfInterestOf rdf:type owl:ObjectProperty ;
                            rdfs:isDefinedBy sosa: ;
                            rdfs:label "is feature of interest of"@en ;
                            skos:definition "A relation between a FeatureOfInterest and an Observation about it, an Actuation acting on it, or an act of Sampling that sampled it."@en .
-
-
-###  http://www.w3.org/ns/sosa/isObservedBy
-sosa:isObservedBy rdf:type owl:ObjectProperty ;
-                  owl:inverseOf sosa:observes ;
-                  schema:domainIncludes sosa:ObservableProperty ;
-                  schema:rangeIncludes sosa:Sensor ;
-                  rdfs:comment "Relation between an ObservableProperty and the Sensor able to observe it."@en ;
-                  rdfs:isDefinedBy sosa: ;
-                  rdfs:label "is observed by"@en ;
-                  skos:definition "Relation between an ObservableProperty and the Sensor able to observe it."@en .
-
-
-###  http://www.w3.org/ns/sosa/isResultOf
-sosa:isResultOf rdf:type owl:ObjectProperty ;
-                schema:domainIncludes sosa:Result ;
-                schema:rangeIncludes sosa:Actuation ,
-                                     sosa:Observation ,
-                                     sosa:Sampling ;
-                rdfs:comment "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it."@en ;
-                rdfs:isDefinedBy sosa: ;
-                rdfs:label "is result of"@en ;
-                skos:definition "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it."@en .
 
 
 ###  http://www.w3.org/ns/sosa/observedProperty
@@ -292,53 +256,21 @@ sosa:observedProperty rdf:type owl:ObjectProperty ;
                       skos:definition "Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation."@en .
 
 
-###  http://www.w3.org/ns/sosa/observes
-sosa:observes rdf:type owl:ObjectProperty ;
-              schema:domainIncludes sosa:Sensor ;
-              schema:rangeIncludes sosa:ObservableProperty ;
-              rdfs:comment "Relation between a Sensor and an ObservableProperty that it is capable of sensing."@en ;
-              rdfs:isDefinedBy sosa: ;
-              rdfs:label "observes"@en ;
-              skos:definition "Relation between a Sensor and an ObservableProperty that it is capable of sensing."@en .
+###  https://github.com/tibonto/vio#hasDefectOfType
+vio:hasDefectOfType rdf:type owl:ObjectProperty ;
+                    owl:inverseOf vio:isDefektofSample ;
+                    rdfs:domain vio:Sample ;
+                    rdfs:range vio:Surface_Damage ;
+                    rdfs:comment "has Defect of Type"@en ,
+                                 "hat Defekt vom Typ"@de .
 
 
-###  http://www.w3.org/ns/sosa/phenomenonTime
-sosa:phenomenonTime rdf:type owl:ObjectProperty ;
-                    schema:domainIncludes sosa:Observation ;
-                    rdfs:comment "The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity."@en ;
-                    rdfs:isDefinedBy sosa: ;
-                    rdfs:label "phenomenon time"@en ;
-                    skos:definition "The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity."@en .
-
-
-###  http://www.w3.org/ns/sosa/usedProcedure
-sosa:usedProcedure rdf:type owl:ObjectProperty ;
-                   schema:domainIncludes sosa:Observation ;
-                   rdfs:comment "A relation to link to a re-usable Procedure used in making an Observation, an Actuation, or a Sample, typically through a Sensor, Actuator or Sampler."@en ;
-                   rdfs:isDefinedBy sosa: ;
-                   rdfs:label "used procedure"@en ;
-                   skos:definition "A relation to link to a re-usable Procedure used in making an Observation, an Actuation, or a Sample, typically through a Sensor, Actuator or Sampler."@en .
-
-
-###  http://www.w3.org/ns/ssn/wasOriginatedBy
-ssn:wasOriginatedBy rdf:type owl:ObjectProperty .
-
-
-###  https://github.com/tibonto/vio#hasDefect
-vio:hasDefect rdf:type owl:ObjectProperty ;
-              rdfs:domain vio:Sample ;
-              rdfs:range vio:Defect .
-
-
-###  https://github.com/tibonto/vio#hasDefectID
-vio:hasDefectID rdf:type owl:ObjectProperty ;
-                rdfs:domain vio:Defect .
-
-
-###  https://github.com/tibonto/vio#isOfType
-vio:isOfType rdf:type owl:ObjectProperty ;
-             rdfs:domain vio:Defect ;
-             rdfs:range vio:Defect_Type .
+###  https://github.com/tibonto/vio#isDefektofSample
+vio:isDefektofSample rdf:type owl:ObjectProperty ;
+                     rdfs:domain vio:Surface_Damage ;
+                     rdfs:range vio:Sample ;
+                     rdfs:label "is Defect of Sample"@en ,
+                                "ist Defekt der Probe"@de .
 
 
 ###  https://github.com/tibonto/vio#made
@@ -366,21 +298,38 @@ vio:madeBy rdf:type owl:ObjectProperty ,
 dcterms:issued rdf:type owl:DatatypeProperty .
 
 
-###  http://www.w3.org/ns/sosa/resultTime
-sosa:resultTime rdf:type owl:DatatypeProperty ;
-                rdfs:range xsd:dateTime ;
-                schema:domainIncludes sosa:Actuation ,
-                                      sosa:Observation ,
-                                      sosa:Sampling ;
-                rdfs:comment "The result time is the instant of time when the Observation, Actuation or Sampling activity was completed."@en ;
-                rdfs:isDefinedBy sosa: ;
-                rdfs:label "result time"@en ;
-                skos:definition "The result time is the instant of time when the Observation, Actuation or Sampling activity was completed."@en .
+###  http://www.w3.org/ns/sosa/hasSimpleResult
+sosa:hasSimpleResult rdf:type owl:DatatypeProperty ;
+                     rdfs:range xsd:string ;
+                     schema:domainIncludes sosa:Actuation ,
+                                           sosa:Observation ,
+                                           sosa:Sampling ;
+                     rdfs:comment "The simple value of an Observation or Actuation or act of Sampling."@en ;
+                     rdfs:isDefinedBy sosa: ;
+                     rdfs:label "has simple result"@en ;
+                     skos:definition "The simple value of an Observation or Actuation or act of Sampling."@en ;
+                     skos:example "For instance, the values 23 or true."@en .
+
+
+###  https://github.com/tibonto/vio#hasDefect
+vio:hasDefect rdf:type owl:DatatypeProperty ;
+              rdfs:domain vio:Sample ;
+              rdfs:range xsd:boolean ;
+              rdfs:label "has Defect"@en ,
+                         "hat Defekt"@de .
+
+
+###  https://github.com/tibonto/vio#hasDefect_Status
+vio:hasDefect_Status rdf:type owl:DatatypeProperty ;
+                     rdfs:domain vio:Surface_Damage ;
+                     rdfs:range xsd:string ;
+                     rdfs:label "has Defect State"@en ,
+                                "has Defektstatus"@de .
 
 
 ###  https://github.com/tibonto/vio#isLocatedInArea
 vio:isLocatedInArea rdf:type owl:DatatypeProperty ;
-                    rdfs:domain vio:Defect ;
+                    rdfs:domain vio:Surface_Damage ;
                     rdfs:range xsd:string ;
                     rdfs:comment "besindet sich im Bereich"@de ,
                                  "is located in Area"@en .
@@ -807,33 +756,12 @@ sosa:Observation rdf:type owl:Class ;
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty sosa:observedProperty ;
                                    owl:cardinality "1"^^xsd:nonNegativeInteger
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty sosa:phenomenonTime ;
-                                   owl:cardinality "1"^^xsd:nonNegativeInteger
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty ssn:wasOriginatedBy ;
-                                   owl:cardinality "1"^^xsd:nonNegativeInteger
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty sosa:resultTime ;
-                                   owl:cardinality "1"^^xsd:nonNegativeInteger
                                  ] ;
                  rdfs:comment "Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with."@en ;
                  rdfs:isDefinedBy sosa: ;
                  rdfs:label "Observation"@en ;
                  skos:definition "Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with."@en ;
                  skos:example "The activity of estimating the intensity of an Earthquake using the Mercalli intensity scale is an Observation as is measuring the moment magnitude, i.e., the energy released by said earthquake."@en .
-
-
-###  http://www.w3.org/ns/sosa/Result
-sosa:Result rdf:type owl:Class ;
-            rdfs:comment "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property."@en ;
-            rdfs:isDefinedBy sosa: ;
-            rdfs:label "Result"@en ;
-            skos:definition "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property."@en ;
-            skos:example "The value 20 as the height of a certain tree together with the unit, e.g., Meter."@en .
 
 
 ###  http://www.w3.org/ns/sosa/Sensor
@@ -844,31 +772,6 @@ sosa:Sensor rdf:type owl:Class ;
             rdfs:label "Sensor"@en ;
             skos:definition "Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms."@en ;
             skos:example "Accelerometers, gyroscopes, barometers, magnetometers, and so forth are Sensors that are typically mounted on a modern smart phone (which acts as Platform). Other examples of sensors include the human eyes."@en .
-
-
-###  https://github.com/tibonto/vio#Critical_Defect
-vio:Critical_Defect rdf:type owl:Class ;
-                    rdfs:subClassOf vio:Defect ;
-                    owl:disjointWith vio:Uncritical_Defect .
-
-
-###  https://github.com/tibonto/vio#Defect
-vio:Defect rdf:type owl:Class ;
-           rdfs:subClassOf sosa:ObservableProperty ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty vio:isOfType ;
-                             owl:someValuesFrom vio:Defect_Type
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty vio:isLocatedInArea ;
-                             owl:someValuesFrom xsd:string
-                           ] ;
-           rdfs:label "Defect"@en ,
-                      "Defekt"@de .
-
-
-###  https://github.com/tibonto/vio#Defect_Type
-vio:Defect_Type rdf:type owl:Class .
 
 
 ###  https://github.com/tibonto/vio#Input_Visual_Inspection
@@ -888,53 +791,28 @@ vio:Output_Visual_Inspection rdf:type owl:Class ;
 
 ###  https://github.com/tibonto/vio#Sample
 vio:Sample rdf:type owl:Class ;
-           rdfs:subClassOf sosa:FeatureOfInterest ;
+           rdfs:subClassOf sosa:FeatureOfInterest ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty vio:hasDefect ;
+                             owl:someValuesFrom xsd:boolean
+                           ] ;
            rdfs:label "Probe"@de ,
                       "Sample"@en .
 
 
-###  https://github.com/tibonto/vio#Sample_accepted
-vio:Sample_accepted rdf:type owl:Class ;
-                    owl:equivalentClass [ rdf:type owl:Class ;
-                                          owl:unionOf ( [ owl:intersectionOf ( vio:Sample
-                                                                               [ rdf:type owl:Class ;
-                                                                                 owl:complementOf [ rdf:type owl:Restriction ;
-                                                                                                    owl:onProperty vio:hasDefect ;
-                                                                                                    owl:someValuesFrom vio:Defect
-                                                                                                  ]
-                                                                               ]
-                                                                             ) ;
-                                                          rdf:type owl:Class
-                                                        ]
-                                                        [ rdf:type owl:Restriction ;
-                                                          owl:onProperty vio:hasDefect ;
-                                                          owl:someValuesFrom vio:Uncritical_Defect
-                                                        ]
-                                                      )
-                                        ] ;
-                    rdfs:subClassOf sosa:Result ;
-                    rdfs:label "Probe akzeptiert"@de ,
-                               "Sample accepted"@en .
-
-
-###  https://github.com/tibonto/vio#Sample_rejected
-vio:Sample_rejected rdf:type owl:Class ;
-                    owl:equivalentClass [ owl:intersectionOf ( vio:Sample
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty vio:hasDefect ;
-                                                                 owl:someValuesFrom vio:Critical_Defect
-                                                               ]
-                                                             ) ;
-                                          rdf:type owl:Class
-                                        ] ;
-                    rdfs:subClassOf sosa:Result ;
-                    rdfs:label "Probe aussortiert"@de ,
-                               "Sample rejected"@en .
-
-
-###  https://github.com/tibonto/vio#Uncritical_Defect
-vio:Uncritical_Defect rdf:type owl:Class ;
-                      rdfs:subClassOf vio:Defect .
+###  https://github.com/tibonto/vio#Surface_Damage
+vio:Surface_Damage rdf:type owl:Class ;
+                   rdfs:subClassOf sosa:ObservableProperty ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty vio:hasDefect_Status ;
+                                     owl:someValuesFrom xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty vio:isLocatedInArea ;
+                                     owl:someValuesFrom xsd:string
+                                   ] ;
+                   rdfs:label "Defect"@en ,
+                              "Defekt"@de .
 
 
 ###  https://github.com/tibonto/vio#Visual_Inspection
@@ -950,28 +828,30 @@ vio:Visual_Inspection rdf:type owl:Class ;
 
 ###  https://github.com/tibonto/vio#Corrosion
 vio:Corrosion rdf:type owl:NamedIndividual ,
-                       vio:Defect_Type ;
+                       vio:Surface_Damage ;
               rdfs:label "Corrosion"@en ,
                          "Korrosion"@de .
 
 
 ###  https://github.com/tibonto/vio#Crack
 vio:Crack rdf:type owl:NamedIndividual ,
-                   vio:Defect_Type ;
+                   vio:Surface_Damage ;
           rdfs:label "Crack"@en ,
                      "Riss"@de .
 
 
 ###  https://github.com/tibonto/vio#Offset
 vio:Offset rdf:type owl:NamedIndividual ,
-                    vio:Defect_Type ;
+                    vio:Surface_Damage ;
            rdfs:label "Offset"@en ,
                       "Versatz"@de .
 
 
 ###  https://github.com/tibonto/vio#fused_Area
 vio:fused_Area rdf:type owl:NamedIndividual ,
-                        vio:Defect_Type .
+                        vio:Surface_Damage ;
+               rdfs:label "Fused Area"@en ,
+                          "Verschmolzener Bereich"@de .
 
 
 [ <http://xmlns.com/foaf/0.1/name> "W3C/OGC Spatial Data on the Web Working Group"@en
@@ -989,14 +869,14 @@ sosa:actsOnProperty rdfs:label "acts on property"@en ;
 
 
 sosa:hasSample skos:definition "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
-               rdfs:comment "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
                rdfs:label "has sample"@en ;
+               rdfs:comment "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
                schema:domainIncludes sosa:FeatureOfInterest ;
                rdfs:isDefinedBy sosa: .
 
 
-sosa:hosts rdfs:comment "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it."@en ;
-           rdfs:isDefinedBy sosa: ;
+sosa:hosts rdfs:isDefinedBy sosa: ;
+           rdfs:comment "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it."@en ;
            skos:definition "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it."@en ;
            schema:rangeIncludes sosa:Sensor ;
            rdfs:label "hosts"@en .
