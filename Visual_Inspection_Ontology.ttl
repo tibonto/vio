@@ -260,14 +260,14 @@ sosa:observedProperty rdf:type owl:ObjectProperty ;
 vio:hasDefectOfType rdf:type owl:ObjectProperty ;
                     owl:inverseOf vio:isDefektofSample ;
                     rdfs:domain vio:Sample ;
-                    rdfs:range vio:Surface_Damage ;
+                    rdfs:range vio:Defect ;
                     rdfs:comment "has Defect of Type"@en ,
                                  "hat Defekt vom Typ"@de .
 
 
 ###  https://github.com/tibonto/vio#isDefektofSample
 vio:isDefektofSample rdf:type owl:ObjectProperty ;
-                     rdfs:domain vio:Surface_Damage ;
+                     rdfs:domain vio:Defect ;
                      rdfs:range vio:Sample ;
                      rdfs:label "is Defect of Sample"@en ,
                                 "ist Defekt der Probe"@de .
@@ -321,7 +321,7 @@ vio:hasDefect rdf:type owl:DatatypeProperty ;
 
 ###  https://github.com/tibonto/vio#hasDefect_Status
 vio:hasDefect_Status rdf:type owl:DatatypeProperty ;
-                     rdfs:domain vio:Surface_Damage ;
+                     rdfs:domain vio:Defect ;
                      rdfs:range xsd:string ;
                      rdfs:label "has Defect State"@en ,
                                 "has Defektstatus"@de .
@@ -329,7 +329,7 @@ vio:hasDefect_Status rdf:type owl:DatatypeProperty ;
 
 ###  https://github.com/tibonto/vio#isLocatedInArea
 vio:isLocatedInArea rdf:type owl:DatatypeProperty ;
-                    rdfs:domain vio:Surface_Damage ;
+                    rdfs:domain vio:Defect ;
                     rdfs:range xsd:string ;
                     rdfs:comment "besindet sich im Bereich"@de ,
                                  "is located in Area"@en .
@@ -774,6 +774,21 @@ sosa:Sensor rdf:type owl:Class ;
             skos:example "Accelerometers, gyroscopes, barometers, magnetometers, and so forth are Sensors that are typically mounted on a modern smart phone (which acts as Platform). Other examples of sensors include the human eyes."@en .
 
 
+###  https://github.com/tibonto/vio#Defect
+vio:Defect rdf:type owl:Class ;
+           rdfs:subClassOf sosa:ObservableProperty ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty vio:hasDefect_Status ;
+                             owl:someValuesFrom xsd:string
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty vio:isLocatedInArea ;
+                             owl:someValuesFrom xsd:string
+                           ] ;
+           rdfs:label "Defect"@en ,
+                      "Defekt"@de .
+
+
 ###  https://github.com/tibonto/vio#Input_Visual_Inspection
 vio:Input_Visual_Inspection rdf:type owl:Class ;
                             rdfs:subClassOf vio:Visual_Inspection ;
@@ -800,21 +815,6 @@ vio:Sample rdf:type owl:Class ;
                       "Sample"@en .
 
 
-###  https://github.com/tibonto/vio#Surface_Damage
-vio:Surface_Damage rdf:type owl:Class ;
-                   rdfs:subClassOf sosa:ObservableProperty ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty vio:hasDefect_Status ;
-                                     owl:someValuesFrom xsd:string
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty vio:isLocatedInArea ;
-                                     owl:someValuesFrom xsd:string
-                                   ] ;
-                   rdfs:label "Defect"@en ,
-                              "Defekt"@de .
-
-
 ###  https://github.com/tibonto/vio#Visual_Inspection
 vio:Visual_Inspection rdf:type owl:Class ;
                       rdfs:subClassOf sosa:Observation ;
@@ -828,28 +828,28 @@ vio:Visual_Inspection rdf:type owl:Class ;
 
 ###  https://github.com/tibonto/vio#Corrosion
 vio:Corrosion rdf:type owl:NamedIndividual ,
-                       vio:Surface_Damage ;
+                       vio:Defect ;
               rdfs:label "Corrosion"@en ,
                          "Korrosion"@de .
 
 
 ###  https://github.com/tibonto/vio#Crack
 vio:Crack rdf:type owl:NamedIndividual ,
-                   vio:Surface_Damage ;
+                   vio:Defect ;
           rdfs:label "Crack"@en ,
                      "Riss"@de .
 
 
 ###  https://github.com/tibonto/vio#Offset
 vio:Offset rdf:type owl:NamedIndividual ,
-                    vio:Surface_Damage ;
+                    vio:Defect ;
            rdfs:label "Offset"@en ,
                       "Versatz"@de .
 
 
 ###  https://github.com/tibonto/vio#fused_Area
 vio:fused_Area rdf:type owl:NamedIndividual ,
-                        vio:Surface_Damage ;
+                        vio:Defect ;
                rdfs:label "Fused Area"@en ,
                           "Verschmolzener Bereich"@de .
 
@@ -869,8 +869,8 @@ sosa:actsOnProperty rdfs:label "acts on property"@en ;
 
 
 sosa:hasSample skos:definition "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
-               rdfs:label "has sample"@en ;
                rdfs:comment "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
+               rdfs:label "has sample"@en ;
                schema:domainIncludes sosa:FeatureOfInterest ;
                rdfs:isDefinedBy sosa: .
 
@@ -898,8 +898,8 @@ sosa:isHostedBy rdfs:isDefinedBy sosa: ;
 
 sosa:isSampleOf rdfs:comment "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."@en ;
                 skos:definition "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."@en ;
-                schema:rangeIncludes sosa:FeatureOfInterest ;
                 rdfs:isDefinedBy sosa: ;
+                schema:rangeIncludes sosa:FeatureOfInterest ;
                 rdfs:label "is sample of"@en .
 
 
