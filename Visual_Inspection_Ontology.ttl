@@ -260,8 +260,7 @@ sosa:observedProperty rdf:type owl:ObjectProperty ;
 vio:isDefectOfSample rdf:type owl:ObjectProperty ;
                      rdfs:domain vio:Defect ;
                      rdfs:range vio:Sample ;
-                     rdfs:label "is Defect of Sample"@en ,
-                                "ist Defekt der Probe"@de .
+                     rdfs:label "is defect of sample"@en .
 
 
 ###  https://github.com/tibonto/vio#made
@@ -306,36 +305,35 @@ sosa:hasSimpleResult rdf:type owl:DatatypeProperty ;
 vio:hasDefect rdf:type owl:DatatypeProperty ;
               rdfs:domain vio:Sample ;
               rdfs:range xsd:boolean ;
-              rdfs:label "has Defect"@en ,
-                         "hat Defekt"@de .
+              rdfs:label "has defect"@en .
 
 
 ###  https://github.com/tibonto/vio#hasDefectID
 vio:hasDefectID rdf:type owl:DatatypeProperty ;
                 rdfs:domain vio:Defect ;
-                rdfs:range xsd:integer .
+                rdfs:range xsd:integer ;
+                rdfs:label "has defect ID"@en .
 
 
 ###  https://github.com/tibonto/vio#hasDefect_Status
 vio:hasDefect_Status rdf:type owl:DatatypeProperty ;
                      rdfs:domain vio:Defect ;
                      rdfs:range xsd:string ;
-                     rdfs:label "has Defect State"@en ,
-                                "has Defektstatus"@de .
+                     rdfs:label "has defect state"@en .
 
 
 ###  https://github.com/tibonto/vio#isLocatedInArea
 vio:isLocatedInArea rdf:type owl:DatatypeProperty ;
                     rdfs:domain vio:Defect ;
                     rdfs:range xsd:string ;
-                    rdfs:comment "besindet sich im Bereich"@de ,
-                                 "is located in Area"@en .
+                    rdfs:comment "is located in area"@en .
 
 
 ###  https://github.com/tibonto/vio#isOfType
 vio:isOfType rdf:type owl:DatatypeProperty ;
              rdfs:domain vio:Defect ;
-             rdfs:range xsd:string .
+             rdfs:range xsd:string ;
+             rdfs:label "is of type"@en .
 
 
 #################################################################
@@ -796,8 +794,7 @@ vio:Defect rdf:type owl:Class ;
                              owl:onProperty vio:isOfType ;
                              owl:someValuesFrom xsd:string
                            ] ;
-           rdfs:label "Defect"@en ,
-                      "Defekt"@de .
+           rdfs:label "Defect"@en .
 
 
 ###  https://github.com/tibonto/vio#Input_Visual_Inspection
@@ -822,15 +819,13 @@ vio:Sample rdf:type owl:Class ;
                              owl:onProperty vio:hasDefect ;
                              owl:someValuesFrom xsd:boolean
                            ] ;
-           rdfs:label "Probe"@de ,
-                      "Sample"@en .
+           rdfs:label "Sample"@en .
 
 
 ###  https://github.com/tibonto/vio#Visual_Inspection
 vio:Visual_Inspection rdf:type owl:Class ;
                       rdfs:subClassOf sosa:Observation ;
-                      rdfs:label "Sichtprüfung"@de ,
-                                 "Visual Inspection"@en .
+                      rdfs:label "Visual Inspection"@en .
 
 
 [ <http://xmlns.com/foaf/0.1/name> "W3C/OGC Spatial Data on the Web Working Group"@en
