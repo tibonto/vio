@@ -256,15 +256,6 @@ sosa:observedProperty rdf:type owl:ObjectProperty ;
                       skos:definition "Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation."@en .
 
 
-###  https://github.com/tibonto/vio#hasDefectOfType
-vio:hasDefectOfType rdf:type owl:ObjectProperty ;
-                    owl:inverseOf vio:isDefectOfSample ;
-                    rdfs:domain vio:Sample ;
-                    rdfs:range vio:Defect ;
-                    rdfs:comment "has Defect of Type"@en ,
-                                 "hat Defekt vom Typ"@de .
-
-
 ###  https://github.com/tibonto/vio#isDefectOfSample
 vio:isDefectOfSample rdf:type owl:ObjectProperty ;
                      rdfs:domain vio:Defect ;
@@ -319,6 +310,12 @@ vio:hasDefect rdf:type owl:DatatypeProperty ;
                          "hat Defekt"@de .
 
 
+###  https://github.com/tibonto/vio#hasDefectID
+vio:hasDefectID rdf:type owl:DatatypeProperty ;
+                rdfs:domain vio:Defect ;
+                rdfs:range xsd:integer .
+
+
 ###  https://github.com/tibonto/vio#hasDefect_Status
 vio:hasDefect_Status rdf:type owl:DatatypeProperty ;
                      rdfs:domain vio:Defect ;
@@ -333,6 +330,12 @@ vio:isLocatedInArea rdf:type owl:DatatypeProperty ;
                     rdfs:range xsd:string ;
                     rdfs:comment "besindet sich im Bereich"@de ,
                                  "is located in Area"@en .
+
+
+###  https://github.com/tibonto/vio#isOfType
+vio:isOfType rdf:type owl:DatatypeProperty ;
+             rdfs:domain vio:Defect ;
+             rdfs:range xsd:string .
 
 
 #################################################################
@@ -778,11 +781,19 @@ sosa:Sensor rdf:type owl:Class ;
 vio:Defect rdf:type owl:Class ;
            rdfs:subClassOf sosa:ObservableProperty ,
                            [ rdf:type owl:Restriction ;
+                             owl:onProperty vio:hasDefectID ;
+                             owl:someValuesFrom xsd:string
+                           ] ,
+                           [ rdf:type owl:Restriction ;
                              owl:onProperty vio:hasDefect_Status ;
                              owl:someValuesFrom xsd:string
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty vio:isLocatedInArea ;
+                             owl:someValuesFrom xsd:string
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty vio:isOfType ;
                              owl:someValuesFrom xsd:string
                            ] ;
            rdfs:label "Defect"@en ,
@@ -820,38 +831,6 @@ vio:Visual_Inspection rdf:type owl:Class ;
                       rdfs:subClassOf sosa:Observation ;
                       rdfs:label "Sichtprüfung"@de ,
                                  "Visual Inspection"@en .
-
-
-#################################################################
-#    Individuals
-#################################################################
-
-###  https://github.com/tibonto/vio#Corrosion
-vio:Corrosion rdf:type owl:NamedIndividual ,
-                       vio:Defect ;
-              rdfs:label "Corrosion"@en ,
-                         "Korrosion"@de .
-
-
-###  https://github.com/tibonto/vio#Crack
-vio:Crack rdf:type owl:NamedIndividual ,
-                   vio:Defect ;
-          rdfs:label "Crack"@en ,
-                     "Riss"@de .
-
-
-###  https://github.com/tibonto/vio#Offset
-vio:Offset rdf:type owl:NamedIndividual ,
-                    vio:Defect ;
-           rdfs:label "Offset"@en ,
-                      "Versatz"@de .
-
-
-###  https://github.com/tibonto/vio#fused_Area
-vio:fused_Area rdf:type owl:NamedIndividual ,
-                        vio:Defect ;
-               rdfs:label "Fused Area"@en ,
-                          "Verschmolzener Bereich"@de .
 
 
 [ <http://xmlns.com/foaf/0.1/name> "W3C/OGC Spatial Data on the Web Working Group"@en
@@ -898,8 +877,8 @@ sosa:isHostedBy rdfs:isDefinedBy sosa: ;
 
 sosa:isSampleOf rdfs:comment "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."@en ;
                 skos:definition "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."@en ;
-                rdfs:isDefinedBy sosa: ;
                 schema:rangeIncludes sosa:FeatureOfInterest ;
+                rdfs:isDefinedBy sosa: ;
                 rdfs:label "is sample of"@en .
 
 
@@ -919,52 +898,6 @@ sosa:madeSampling rdfs:isDefinedBy sosa: ;
                   skos:definition "Relation between a Sampler (sampling device or entity) and the Sampling act it performed."@en ;
                   rdfs:comment "Relation between a Sampler (sampling device or entity) and the Sampling act it performed."@en ;
                   rdfs:label "made sampling"@en .
-
-
-#################################################################
-#    General axioms
-#################################################################
-
-[ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( vio:Corrosion
-                        vio:Crack
-                      )
-] .
-
-
-[ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( vio:Corrosion
-                        vio:Offset
-                      )
-] .
-
-
-[ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( vio:Corrosion
-                        vio:fused_Area
-                      )
-] .
-
-
-[ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( vio:Crack
-                        vio:Offset
-                      )
-] .
-
-
-[ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( vio:Crack
-                        vio:fused_Area
-                      )
-] .
-
-
-[ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( vio:Offset
-                        vio:fused_Area
-                      )
-] .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
