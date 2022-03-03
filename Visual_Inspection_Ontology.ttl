@@ -355,6 +355,9 @@ sosa:Sensor rdf:type owl:Class ;
 ###  https://github.com/tibonto/vio#Corrosion
 vio:Corrosion rdf:type owl:Class ;
               rdfs:subClassOf vio:Defect ;
+              owl:disjointWith vio:Crack ,
+                               vio:Fused_Area ,
+                               vio:Offset ;
               rdfs:label "Corrosion"@en ,
                          "Korrosion"@de .
 
@@ -362,6 +365,8 @@ vio:Corrosion rdf:type owl:Class ;
 ###  https://github.com/tibonto/vio#Crack
 vio:Crack rdf:type owl:Class ;
           rdfs:subClassOf vio:Defect ;
+          owl:disjointWith vio:Fused_Area ,
+                           vio:Offset ;
           rdfs:label "Crack"@en ,
                      "Riss"@de .
 
@@ -376,6 +381,7 @@ vio:Defect rdf:type owl:Class ;
 ###  https://github.com/tibonto/vio#Fused_Area
 vio:Fused_Area rdf:type owl:Class ;
                rdfs:subClassOf vio:Defect ;
+               owl:disjointWith vio:Offset ;
                rdfs:label "Fused Area"@en ,
                           "aufgeschmolzener Bereich"@de .
 
@@ -383,6 +389,7 @@ vio:Fused_Area rdf:type owl:Class ;
 ###  https://github.com/tibonto/vio#Input_Visual_Inspection
 vio:Input_Visual_Inspection rdf:type owl:Class ;
                             rdfs:subClassOf vio:Visual_Inspection ;
+                            owl:disjointWith vio:Output_Visual_Inspection ;
                             rdfs:label "Eingangssichtprüfung"@de ,
                                        "Input Visual Inspection"@en .
 
@@ -802,8 +809,8 @@ sosa:actsOnProperty rdfs:label "acts on property"@en ;
 
 
 sosa:hasSample skos:definition "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
-               rdfs:label "has sample"@en ;
                rdfs:comment "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
+               rdfs:label "has sample"@en ;
                schema:domainIncludes sosa:FeatureOfInterest ;
                rdfs:isDefinedBy sosa: .
 
