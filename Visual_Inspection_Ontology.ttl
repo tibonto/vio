@@ -225,15 +225,6 @@ sosa:observes rdf:type owl:ObjectProperty ;
               skos:definition "Relation between a Sensor and an ObservableProperty that it is capable of sensing."@en .
 
 
-###  http://www.w3.org/ns/sosa/phenomenonTime
-sosa:phenomenonTime rdf:type owl:ObjectProperty ;
-                    schema:domainIncludes sosa:Observation ;
-                    rdfs:comment "The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity."@en ;
-                    rdfs:isDefinedBy sosa: ;
-                    rdfs:label "phenomenon time"@en ;
-                    skos:definition "The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity."@en .
-
-
 ###  http://www.w3.org/ns/sosa/usedProcedure
 sosa:usedProcedure rdf:type owl:ObjectProperty ;
                    schema:domainIncludes sosa:Observation ;
@@ -488,8 +479,6 @@ vio:isLocatedInArea rdf:type owl:DatatypeProperty ;
 <http://purl.obolibrary.org/obo/BFO_0000004> rdf:type owl:Class ;
                                              owl:equivalentClass prov:Entity ;
                                              rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000002> ;
-                                             owl:disjointWith <http://purl.obolibrary.org/obo/BFO_0000020> ,
-                                                              <http://purl.obolibrary.org/obo/BFO_0000031> ;
                                              <http://purl.obolibrary.org/obo/BFO_0000179> "ic" ;
                                              <http://purl.obolibrary.org/obo/BFO_0000180> "IndependentContinuant" ;
                                              <http://purl.obolibrary.org/obo/IAO_0000112> "a chair"@en ,
@@ -554,11 +543,6 @@ vio:isLocatedInArea rdf:type owl:DatatypeProperty ;
  ] .
 
 
-###  http://purl.obolibrary.org/obo/BFO_0000008
-<http://purl.obolibrary.org/obo/BFO_0000008> rdf:type owl:Class ;
-                                             owl:disjointWith <http://purl.obolibrary.org/obo/BFO_0000015> .
-
-
 ###  http://purl.obolibrary.org/obo/BFO_0000015
 <http://purl.obolibrary.org/obo/BFO_0000015> rdf:type owl:Class ;
                                              owl:equivalentClass prov:Activity ;
@@ -591,14 +575,6 @@ vio:isLocatedInArea rdf:type owl:DatatypeProperty ;
    owl:annotatedTarget "(iff (Process a) (and (Occurrent a) (exists (b) (properTemporalPartOf b a)) (exists (c t) (and (MaterialEntity c) (specificallyDependsOnAt a c t))))) // axiom label in BFO2 CLIF: [083-003] " ;
    <http://purl.obolibrary.org/obo/IAO_0010000> <http://purl.obolibrary.org/obo/bfo/axiom/083-003>
  ] .
-
-
-###  http://purl.obolibrary.org/obo/BFO_0000020
-<http://purl.obolibrary.org/obo/BFO_0000020> rdf:type owl:Class .
-
-
-###  http://purl.obolibrary.org/obo/BFO_0000031
-<http://purl.obolibrary.org/obo/BFO_0000031> rdf:type owl:Class .
 
 
 ###  http://www.w3.org/ns/prov#Activity
@@ -678,10 +654,6 @@ sosa:Observation rdf:type owl:Class ;
                                  ] ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty sosa:observedProperty ;
-                                   owl:cardinality "1"^^xsd:nonNegativeInteger
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty sosa:phenomenonTime ;
                                    owl:cardinality "1"^^xsd:nonNegativeInteger
                                  ] ,
                                  [ rdf:type owl:Restriction ;
@@ -801,8 +773,8 @@ sosa:actsOnProperty rdfs:label "acts on property"@en ;
 
 
 sosa:hasSample skos:definition "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
-               rdfs:label "has sample"@en ;
                rdfs:comment "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
+               rdfs:label "has sample"@en ;
                schema:domainIncludes sosa:FeatureOfInterest ;
                rdfs:isDefinedBy sosa: .
 
