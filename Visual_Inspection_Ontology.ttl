@@ -287,8 +287,8 @@ sosa:resultTime rdf:type owl:DatatypeProperty ;
                 skos:definition "The result time is the instant of time when the Observation, Actuation or Sampling activity was completed."@en .
 
 
-###  https://github.com/tibonto/vio#HasDefectStatus
-vio:HasDefectStatus rdf:type owl:DatatypeProperty ;
+###  https://github.com/tibonto/vio#hasDefectStatus
+vio:hasDefectStatus rdf:type owl:DatatypeProperty ;
                     rdfs:domain vio:Defect ;
                     rdfs:range xsd:string .
 
